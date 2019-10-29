@@ -1,0 +1,219 @@
+Log Successfully Created
+
+Execution of this query succeeded: Select * from Student
+Student list successfully inputted from database
+Execution of this query succeeded: Select * from Professor
+Professor list successfully inputted from ./Data/ProfessorList
+Execution of this query succeeded: Select stID from Student
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9000;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9001;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9002;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9003;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9004;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9005;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9006;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9007;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9008;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9009;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9010;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9011;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9012;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9013;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9014;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9015;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9016;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9017;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9018;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9019;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9020;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9021;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9022;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9023;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9024;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9025;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9026;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9027;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9028;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9029;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9030;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9031;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9032;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9033;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9034;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9035;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9036;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9037;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9038;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9039;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9040;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9041;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9042;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9043;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9044;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9045;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9046;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9047;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9048;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9049;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9050;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9051;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9052;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9053;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9054;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9055;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9056;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9057;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9058;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9059;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9060;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9061;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9062;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9063;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9064;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9065;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9066;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9067;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9068;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9069;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9070;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9071;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9072;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9073;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9074;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9075;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9076;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9077;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9078;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9079;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9080;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9081;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9082;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9083;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9084;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9085;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9086;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9087;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9088;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9089;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9090;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9091;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9092;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9093;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9094;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9095;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9096;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9097;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9098;
+Execution of this query succeeded: SELECT S.Stid, T.CrsID, T.Grade FROM Student S  INNER JOIN Transcript T on (S.stID=t.stID) Where S.stid =9099;
+Marks list successfully inputted from ./Data/MarksList
+Execution of this query succeeded: SELECT C.CrsID, C.CrsName, T.ProfID FROM Course C INNER JOIN Teaches T on (C.CrsID=T.CrsID);
+Course list successfully inputted from ./Data/CourseList
+
+Start Execution Command #1: addStudent,9124,Cassius,Markus,m_cassius@fake.com,
+Execution of this query succeeded: INSERT INTO Student Values ('9124', 'Markus', 'Cassius', 'm_cassius@fake.com')
+ - New student 9124 successfully inserted.
+ - New student 9124 successfully added.
+End Execution Command #1
+
+
+Start Execution Command #2: addProfessor,6156,Kenmore,Mike,m_kenmore@fake.com,RS206,
+Execution of this query succeeded: INSERT INTO Professor Values ('6156', 'Mike', 'Kenmore', 'm_kenmore@fake.com', 'RS206')
+ - New professor 6156 successfully inserted.
+ - New professor 6156 successfully added.
+End Execution Command #2
+
+
+Start Execution Command #3: addCourse,cse422h1f,Programming,6026,
+Execution of this query succeeded: INSERT INTO Course Values ('cse422h1f', 'Programming')
+Execution of this query succeeded: INSERT INTO Teaches (ProfID, CrsID) Values (6026, 'cse422h1f')
+ - New course cse422h1f successfully inserted.
+ - New course cse422h1f successfully added.
+End Execution Command #3
+
+
+Start Execution Command #4: addMark,9124,mie363h1s,85,
+Execution of this query succeeded: INSERT INTO Transcript Values (9124, 'mie363h1s', 85)
+ - New mark for student 9124 successfully inserted.
+ - New mark for student 9124 successfully added.
+End Execution Command #4
+
+
+Start Execution Command #5: displayStudent,9063,
+Information for student 9063:
+ - Last Name: Nelson
+ - First Name: Juan
+ - Email: Juan_Nelson@fake.com
+  -- mie312h1f: 98
+  -- mie372h1f: 70
+  -- mie337h1f: 68
+  -- mie514h1s: 94
+  -- mie313h1s: 71
+
+End Execution Command #5
+
+
+Start Execution Command #6: displayProfessor,6063,
+Information for professor 6063:
+ - Last Name: Anderson
+ - First Name: Benjamin
+ - Email: Benjamin_Anderson@UofT.com
+ - Office: EZ458
+ - Courses taught:
+ --- Currently not teaching any courses
+End Execution Command #6
+
+
+Start Execution Command #7: displayProfessor,6056,
+Information for professor 6056:
+ - Last Name: Young
+ - First Name: Cassandra
+ - Email: Cassandra_Young@UofT.com
+ - Office: RC729
+ - Courses taught:
+ --- Currently not teaching any courses
+End Execution Command #7
+
+
+Start Execution Command #8: displayCourse,mie343h1f,
+Information for course mie343h1f:
+ - Course Name: Indust.Ergo.& Workpl
+ - Professor ID: 6079
+End Execution Command #8
+
+
+Start Execution Command #9: editStudent,9064,McFlea,Marty,superfly42@fake.com,
+Execution of this query succeeded: UPDATE Student Set FirstName = 'Marty', LastName ='McFlea', Email = 'superfly42@fake.com' WHERE StID =9064 
+ - Student 9064 successfully updated.
+ - Student 9064 successfully edited.
+End Execution Command #9
+
+
+Start Execution Command #10: editProfessor,6064,Smithe,Jacky,jacky_smithe@fake.com,MS223,
+Execution of this query succeeded: UPDATE Professor Set FirstName = 'Jacky', LastName ='Smithe', Email = 'jacky_smithe@fake.com', Office = 'MS223' WHERE ProfID =6064; 
+ - Professor 6064 successfully updated.
+ - Professor 6064 successfully edited.
+ - Professor 6064 successfully edited.
+End Execution Command #10
+
+
+Start Execution Command #11: editCourse,mie358h1f,Engineering Economics and Accounting,6063,
+Execution of this query succeeded: UPDATE Course Set CrsName = 'Engineering Economics and Accounting' WHERE CrsId = 'mie358h1f'; 
+Execution of this query succeeded: UPDATE Teaches Set ProfId = 6063 WHERE CrsId = 'mie358h1f'; 
+ - Course mie358h1f successfully updated.
+ - Course mie358h1f successfully edited.
+ - Course mie358h1f successfully edited.
+End Execution Command #11
+
+
+Start Execution Command #12: editMark,9063,mie337h1f,33,
+Execution of this query succeeded: UPDATE Transcript Set Grade= 33 WHERE StID =9063 AND CrsId = 'mie337h1f'
+ - The update query for student 9063 mark succeeded.
+ - Mark for student 9063 successfully edited and inserted.
+End Execution Command #12
+
+Student list successfully output to ./Data/StudentList.out
+Professor list successfully output to ./Data/ProfessorList.out
+Course list successfully output to ./Data/CourseList.out
+Marks list successfully output to ./Data/MarksList.out
+
+Execution successful: Please see log file for command execution details.
