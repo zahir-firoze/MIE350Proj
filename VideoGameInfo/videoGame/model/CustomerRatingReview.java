@@ -43,6 +43,9 @@ public class CustomerRatingReview {
 	public int getUPCNumber(){
 		return upcNumber;
 	}
+	public double getRating(){
+		return rating;
+	}
 	public String getEmail(){
 		return email;
 	}
