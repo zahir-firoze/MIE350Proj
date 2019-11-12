@@ -2,6 +2,7 @@ package com.vgi.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +21,9 @@ public class VideoGameController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	private VideoGameDao dao;
+	
 	//TODO
+	private static String TEST_LIST_FILTER_RESULTS = "/TEST_displayFilterResults.jsp";
 	//create constants for relevant jsp files
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,13 +38,13 @@ public class VideoGameController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<p> <b> <font color='cyan'>This is the VideoGameController Servlet</font> </b></p>");
-		out.println("</body>");
-		out.println("</html>");
+//		out.println("<html>");
+//		out.println("<head>");
+//		out.println("</head>");
+//		out.println("<body>");
+//		out.println("<p> <b> <font color='cyan'>This is the VideoGameController Servlet</font> </b></p>");
+//		out.println("</body>");
+//		out.println("</html>");
 //		/**
 //		 * This class retrieves the appropriate 'action' found on the JSP pages:
 //		 * filter - filter list of games based on attribute(s)
@@ -66,6 +69,21 @@ public class VideoGameController extends HttpServlet {
 //		}
 //		//RequestDispatcher view = request.getRequestDispatcher(forward);
 //		//view.forward(request, response);
+		
+		//*************filter videogames action INPUT - REMOVE ONCE TESTING DONE********************
+				HashMap<String,Object> input = new HashMap<String,Object>();
+				
+				input.put("Price",19.99);
+				//input.put("Genre","Adventure");
+				//input.put("ESRB_Rating","E");
+				System.out.println(input.toString());
+				//*************filter videogames action START********************
+				RequestDispatcher view = request
+						.getRequestDispatcher(TEST_LIST_FILTER_RESULTS);
+				request.setAttribute("videogames", dao.getFilteredVideoGames(input));
+				request.setAttribute("vgFilters", input.toString());
+				view.forward(request, response);
+				//*************filter accessories action END********************
 	}
 
 	/**
