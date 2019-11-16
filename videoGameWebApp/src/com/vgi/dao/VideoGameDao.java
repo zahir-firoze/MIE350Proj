@@ -1,131 +1,93 @@
-package com.vgi.controller;
+package com.vgi.dao;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.vgi.model.Accessory;
+import com.vgi.model.VideoGame;
+import com.vgi.util.DbUtil;
 
+public class VideoGameDao {
 
-
-import com.vgi.dao.AccessoryDao;
-import com.vgi.dao.ToDoDAO;
-import com.vgi.dao.VideoGameDao;
-/**
- * Servlet implementation class AccessoryController
- */
-@WebServlet("/AccessoryController")
-public class AccessoryController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    
-	private AccessoryDao dao;
-	/*
-	 * Remove TEST_ constants once testing is completed
-	 */
-	private static String TEST_LIST_FILTER_RESULTS = "/TEST_displayFilterResults.jsp";
+	private Connection connection;
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AccessoryController() {
-        super();
-        // TODO Auto-generated constructor stub
-        dao = new AccessoryDao();
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
-//		PrintWriter out = response.getWriter();
-//		out.println("<html>");
-//		out.println("<head>");
-//		out.println("</head>");
-//		out.println("<body>");
-//		out.println("<p><i>This is the AccessoryController doGet page</i></p>");
-//		out.println("<p><i>There are " + rowCount + " rows in daddy's TODO table</p>");
-//		out.println("</body>");
-//		out.println("</html>");
-//		// TODO add new actions accordingly
-//		/**
-//		 * This class retrieves the appropriate 'action' found on the JSP pages:
-//		 * filter - filter list of games based on attribute(s)
-//		 * display - displays the video game information
-//		 */ 
-//		 
-//		 
-//		 String forward = "";
-//			String action = request.getParameter("action");
-//			
-//			//TODO
-//			//establish appropriate logic for the filter and display functions
-//			if (action.equalsIgnoreCase("filter")) {
-//				//int studentId = Integer.parseInt(request.getParameter("studentId"));
-//				//dao.deleteStudent(studentId);
-//				//forward = LIST_STUDENT_ADMIN;
-//				//request.setAttribute("students", dao.getAllStudents());
-//			} else if (action.equalsIgnoreCase("display")) {
-//				//forward = INSERT;
-//				//request.setAttribute("students", dao.getAllStudents());
-//			}
-//			else{
-//				//forward = display;
-//			}
-//			//RequestDispatcher view = request.getRequestDispatcher(forward);
-//			//view.forward(request, response);
-		
-//		ToDoDAO dao = new ToDoDAO();
-//		int rowCount = dao.testDB();
-//        Integer daddyInteger = new Integer(rowCount);
-//		RequestDispatcher rd = request
-//				.getRequestDispatcher(TEST_LIST_FILTER_RESULTS);    
-//        request.setAttribute("daddyInt", daddyInteger);
-//        rd.forward(request, response);
-        
-        
-        
-		//*************filter accessories action INPUT - REMOVE ONCE TESTING DONE********************
-		HashMap<String,Object> input = new HashMap<String,Object>();
-		
-		input.put("Price",15.99);
-		//input.put("ConsoleCompatibility","Nintendo3DS");
-		
-		//*************filter accessories action START********************
-		RequestDispatcher view = request
-				.getRequestDispatcher(TEST_LIST_FILTER_RESULTS);
-		request.setAttribute("accessories", dao.getFilteredAccessories(input));
-		request.setAttribute("accFilters",input.toString());
-		view.forward(request, response);
-		//*************filter accessories action END********************
-
-
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-
-		/** TODO: CHANGE DESCRIPTION ONCE THE METHOD IS FINALIZED
-		 * This method posts the database query results
-		 * Database query is dynamically created by the hashmap input
+	public VideoGameDao(){
+		/**
+		 * Get the database connection.
 		 */
-		
-        doGet(request, response);
-		
+		connection = DbUtil.getConnection();
 	}
-
+	//TODO
+	public List<VideoGame> getFilteredVideoGames(HashMap<String,Object> selectedAttributes){
+		List<VideoGame> accessoriesList = new ArrayList<VideoGame>();
+		String sqlQueryStatement = "SELECT * FROM VideoGames";
+		String columnName;
+		Object value;
+		int counter = 1; //leave this at 1!!
+		int sizeOfFilter = 0;
+		try{
+			Statement statement = connection.createStatement();
+			
+			
+			//map can be of dynamic size
+			
+			if (!selectedAttributes.isEmpty()){
+				//search in map which filters are to be applied for the SQL query
+				//this for each loop creates the SQL Query
+				sqlQueryStatement = sqlQueryStatement + " WHERE";
+				sizeOfFilter = selectedAttributes.keySet().size();
+				for (Object f : selectedAttributes.keySet()){
+					//System.out.println(selectedAttributes.get(f).getClass());
+					columnName = (String) f;
+					value = selectedAttributes.get(f) ;
+					sqlQueryStatement = sqlQueryStatement + " " + columnName;
+					//format the query based on the object in the hashmap
+					if (selectedAttributes.get(f) instanceof java.lang.String){
+						sqlQueryStatement = sqlQueryStatement + "='" + value+"'";
+					}
+					else{
+						sqlQueryStatement = sqlQueryStatement + "=" + value;
+					}
+					if (counter < sizeOfFilter){
+						sqlQueryStatement = sqlQueryStatement + " AND";
+					}
+					counter++;
+					//SELECT * FROM Accessories WHERE ConsoleCompatibility = '3DS' AND Price < 16;
+				}
+			}
+			System.out.println("Query : " + sqlQueryStatement);
+			//execute the dynamically created query
+			ResultSet rs = statement.executeQuery(sqlQueryStatement);
+			//save the list of found accessories in the list
+			while (rs.next()) {
+				VideoGame vg = new VideoGame();
+				vg.setUPCNumber(rs.getInt("UPC"));
+				vg.setTitle(rs.getString("Title"));
+				vg.setDeveloper(rs.getString("Developer"));
+				vg.setConsole(rs.getString("Console"));
+				vg.setGenre(rs.getString("Genre"));
+				vg.setReleaseDate(rs.getDate("Release_Date"));
+				vg.setConsumerRating(rs.getDouble("Consumer_Rating"));
+				vg.setEsrbRating(rs.getString("ESRB_Rating"));
+				vg.setPrice(rs.getDouble("Price"));
+				vg.setDescription(rs.getString("Description"));
+				vg.setMaxPlayers(rs.getInt("Max_Players"));
+				vg.setImageFileName(rs.getString("ImageFileName"));
+				accessoriesList.add(vg);
+			}
+			
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+		return accessoriesList;
+	}
+ 
 }
