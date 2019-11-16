@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Game Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Font Awesome Icon Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <scriptsrc="#SCRIPT"></script>
+  <scriptsrc="#SCRIPT"></script>
+
+</head>
+
+<body>
+  <header>
+    <h1 class="page-title">GameCheck</h1>
+  </header>
+
+  <div class="navbar">
+    <a href="#self">All Products</a>
+    <a href="#3DS">All 3Ds</a>
+    <a href="#switch">Switch</a>
+    <a href="#PS4">PS4</a>
+    <a href="#Xbox">Xbox</a>
+    <a href="#psvita">PS Vita</a>
+
+    <div class="subnav">
+      <button class="subnavbtn">Filter <i class="unknown"></i></button>
+
+      <div class="subnav-content">
+        <a href="#">Company</a>
+        <a href="#team">Team</a>
+        <a href="#careers">Careers</a>
+      </div>
+
+    </div>
+
+    <a href="#partners">Partners</a>
+    <a href="#about-us">About Us</a>
+  </div>
+
+  <div class="pathway">
+    <span><a href="#console-type">#jsx retrieve console type</a></span>
+    <span>></span>
+    <span><a href="#game-name">#jsx retrieve game name</a></span>
+  </div>
+
+
+  <div class="grid-container-1">
+    <div class="left">
+      <div class="left-1">
+        <a class="game-name" href="#game-name">#jsx retrieve game name</a>
+
+        <br>
+        <span><a class="game-company-name" href="#game-company-name">#jsx retrieve game company name</a></span>
+
+        <br>
+        <span class="game-price">$</span>
+        <span><a class="game-price" href="game-price">#jsx retrieve game price</a></span>
+      </div>
+
+      <div class="left-2">
+        <span class="rate-this-title">Rate this title!</span>
+        <span><a class="rating-value" href="#rating-value">#jsx retrieve rating value</a></span>
+
+        <br>
+
+        <!-- QUES: how to dynamically update rating? -->
+        <span class="star-rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="right">
+      <img class="esrb-rating" src="#esrb-rating" alt="#jsx display esrb rating type">
+      <!-- TODO: change to jsx esrb rating -->
+
+
+      <div class="genre">
+        <span>Genre:  </span>
+        <a class="genre" href="#genre">#jsx retrieve genre</a>
+      </div>
+
+      <div class="developer">
+        <span>Developer: </span>
+        <a class="developer" href="#developer">#jsx retrieve developer</a>
+      </div>
+
+      <div class="release date">
+        <span>Release Date: </span>
+        <a class="release date" href="#release-date">#jsx retrieve release date</a>
+      </div>
+
+      <div class="number of players">
+        <span># of Players: </span>
+        <a class="number-of-players" href="#number-of-players">#jsx retrieve number of players</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grid-container-2">
+    <div class="left">
+      <img class="game-cover"src="game-cover" alt="jsx display game cover">
+    </div>
+
+    <div class="right">
+      <div class="game-description">
+        <h3>Description: </h3>
+        <p>#jsx retrieve game description</p>
+      </div>
+
+      <div class="store-availability">
+        <h3>Store Availability: </h3>
+        <!-- for each store, retrieve store name, address and display in <span> tag -->
+        <span>#jsx retrieve store i name, #jsx retrieve store i address</span>
+
+      </div>
+
+      <div class="review">
+        <h3>Reviews (#jsx retrieve number of reviews): </h3>
+        <button name="review-show-all">
+          <span>[show all]</span>
+        </button>
+        <!-- for each review, retrieve reviewer name and comment (and if there are other info that needs to be displayed), and display in <span> tag -->
+        <span>#jsx retrieve reviewer name, #jsx retrieve comment </span>
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
