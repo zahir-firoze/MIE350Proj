@@ -24,6 +24,7 @@ public class VideoGameController extends HttpServlet {
 	
 	//TODO
 	private static String TEST_LIST_FILTER_RESULTS = "/TEST_displayFilterResults.jsp";
+	private static String LIST_FILTER_RESULTS = "/FilterResults.jsp";
 	//create constants for relevant jsp files
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,38 +38,18 @@ public class VideoGameController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-//		out.println("<html>");
-//		out.println("<head>");
-//		out.println("</head>");
-//		out.println("<body>");
-//		out.println("<p> <b> <font color='cyan'>This is the VideoGameController Servlet</font> </b></p>");
-//		out.println("</body>");
-//		out.println("</html>");
-//		/**
-//		 * This class retrieves the appropriate 'action' found on the JSP pages:
-//		 * filter - filter list of games based on attribute(s)
-//		 * display - displays the video game information
-//		 */ 
+
+		boolean someValue = true;
+		
+		if (someValue){
+			System.out.println("Byyyye");
+		}//if
+		//		PrintWriter out = response.getWriter();
 //		String forward = "";
 //		String action = request.getParameter("action");
-//		
-//		//TODO
-//		//establish appropriate logic for the filter and display functions
-//		if (action.equalsIgnoreCase("filter")) {
-//			//int studentId = Integer.parseInt(request.getParameter("studentId"));
-//			//dao.deleteStudent(studentId);
-//			//forward = LIST_STUDENT_ADMIN;
-//			//request.setAttribute("students", dao.getAllStudents());
-//		} else if (action.equalsIgnoreCase("display")) {
-//			//forward = INSERT;
-//			//request.setAttribute("students", dao.getAllStudents());
-//		}
-//		else{
-//			//forward = display;
-//		}
-//		//RequestDispatcher view = request.getRequestDispatcher(forward);
-//		//view.forward(request, response);
+//		System.out.println(action);
+//		String filterTest = request.getParameter("playerFilter");
+//		System.out.println(filterTest);
 		
 		//*************filter videogames action INPUT - REMOVE ONCE TESTING DONE********************
 				HashMap<String,Object> input = new HashMap<String,Object>();
@@ -78,8 +59,11 @@ public class VideoGameController extends HttpServlet {
 				//input.put("ESRB_Rating","E");
 				System.out.println(input.toString());
 				//*************filter videogames action START********************
+//				RequestDispatcher view = request
+//						.getRequestDispatcher(TEST_LIST_FILTER_RESULTS);
 				RequestDispatcher view = request
-						.getRequestDispatcher(TEST_LIST_FILTER_RESULTS);
+						.getRequestDispatcher(LIST_FILTER_RESULTS);
+				
 				request.setAttribute("videogames", dao.getFilteredVideoGames(input));
 				request.setAttribute("vgFilters", input.toString());
 				view.forward(request, response);
@@ -90,6 +74,21 @@ public class VideoGameController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		/*
+		 * This method gets information from the HomePage.jsp when someone utilizes the filter feature
+		 */
+		String inputSource =  request.getParameter("filterForm");
+		boolean requestReceived = false;
+		if (inputSource.equals("videogame")){
+			requestReceived = true;
+			/*
+			 * Format all the inputs to their appropriate values in order to be sent to the doGet method
+			 */
+			String genreValue = request.getParameter("genreFilter");
+			
+			
+		}
 		
 	}
 
