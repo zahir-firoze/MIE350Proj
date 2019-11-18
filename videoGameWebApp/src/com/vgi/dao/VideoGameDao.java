@@ -13,6 +13,7 @@ import java.util.Map;
 import com.vgi.model.Accessory;
 import com.vgi.model.VideoGame;
 import com.vgi.util.DbUtil;
+import com.vgi.tuple.*;
 
 public class VideoGameDao {
 
@@ -52,9 +53,58 @@ public class VideoGameDao {
 					if (selectedAttributes.get(f) instanceof java.lang.String){
 						sqlQueryStatement = sqlQueryStatement + "='" + value+"'";
 					}
+					else if (selectedAttributes.get(f) instanceof ReleaseDateRange){
+						ReleaseDateRange tempRDR = (ReleaseDateRange) value;
+						if(tempRDR.getOneSideRange() && tempRDR.getApplyGreaterSign()){
+							//the price range is one sided with a ">" sign
+							sqlQueryStatement = sqlQueryStatement + ">=#" + tempRDR.getOneSidedDate()+"#";
+						}
+						else if(tempRDR.getOneSideRange() && !tempRDR.getApplyGreaterSign()){
+							//the price range is one sided with a "<" sign
+							sqlQueryStatement = sqlQueryStatement + "<=#" + tempRDR.getOneSidedDate()+"#";
+						}
+						else{
+							//format the query for the two bound price ranges
+							sqlQueryStatement = sqlQueryStatement + ">=#" + tempRDR.getStartDate() +"#" + " AND " + columnName + "<=#" + tempRDR.getEndDate() +"#" ;
+						}
+					}
+					/*
+					 * If the object is Price Range
+					 */
+					else if (selectedAttributes.get(f) instanceof PriceRange){
+						PriceRange tempPR = (PriceRange) value;
+						
+						
+						if(tempPR.getOneSideRange() && tempPR.getApplyGreaterSign()){
+							//the price range is one sided with a ">" sign
+							sqlQueryStatement = sqlQueryStatement + ">" + tempPR.getOneSidedLimit();
+						}
+						else if(tempPR.getOneSideRange() && !tempPR.getApplyGreaterSign()){
+							//the price range is one sided with a "<" sign
+							sqlQueryStatement = sqlQueryStatement + "<" + tempPR.getOneSidedLimit();
+						}
+						else{
+							//format the query for the two bound price ranges
+							sqlQueryStatement = sqlQueryStatement + ">=" + tempPR.getLowerLimit() + " AND " + columnName + "<=" + tempPR.getUpperLimit() ;
+						}
+					}
+					else if (selectedAttributes.get(f) instanceof MaxPlayer){
+						//add a '>' if MaxPlayer.isMoreThan4 returns true
+						MaxPlayer tempMP = (MaxPlayer) value;
+						if (tempMP.isMoreThan4()){
+							sqlQueryStatement = sqlQueryStatement + " > " + tempMP.getNumPlayers();
+						}
+						else{
+							sqlQueryStatement = sqlQueryStatement + "=" + tempMP.getNumPlayers();
+						}
+					}
+					
+					
 					else{
 						sqlQueryStatement = sqlQueryStatement + "=" + value;
 					}
+					
+					
 					if (counter < sizeOfFilter){
 						sqlQueryStatement = sqlQueryStatement + " AND";
 					}

@@ -9,4 +9,13 @@ please put this line for each day of changes
 =======================================================================================================================================
 11/12/2019,Ciel, added filter functionality in the videgame classes (VideoGame, VideoGameDao, VideoGame); removed consoleCompatability member from product; added getters and setters for VideoGame attributes; added dynamic table for videogame filter results in TEST_displayFilterResults.jsp and added a line that shows the filters applied for both videogames and accessories
 =======================================================================================================================================
-11/16/2019,Ciel; made jsp file for the homepage; made the welcoming page the hompage.jsp in the web.xml file; added some content into the doPost method in VideoGameController to test getting parameter values from JSP files
+11/16/2019,Ciel; made jsp file for the homepage; made the welcoming page the hompage.jsp in the web.xml file; added some content into the doPost method in VideoGameController to test getting parameter values from JSP files;
+=======================================================================================================================================
+11/18/2019,Ciel; Added a new package called tuple which holds objects used for filters that require bounds;
+created an accessory page that will be accessed from the navbar;
+NavBar was changed, "All Products" -> Video Games;
+In HomePage.jsp, imported NavBar.jsp, removed the accessories section, fixed image references by adding "img/";
+In VideoGameDAO, getFilterVideoGames() had many if statements to deal with the different type of objects stored to perform the filter funtion and formatting the SQL query correctly;
+In VideoGameController, the inputs from the VideoGameFilter form were processed and saved into appropriate objects from the package vgi.com.tuples and packaged into a nice hashmap;
+Added the new package "constants" to store the price ranges from the dropdown filters on the VideoGame Page;
+======================================================================================================================================
