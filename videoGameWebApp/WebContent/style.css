@@ -1,77 +1,143 @@
-﻿.navbar {
-  overflow: hidden;
-  min-height: 200%;
-  font-weight: 200;
-  line-height: 2;
-  background-color: #000000; ;
-  font-family: 'Century Gothic', sans-serif;
+html, body {
+  background-color: #DBF1FE;
 }
 
-/* Links inside the navbar */
+.page-title {
+  font-family: 'DejaVu Sans Mono', monospace;
+  color: #3985B1;
+  font-size: 40px;
+}
+
+/* The navigation menu */
+.navbar, .subnavbtn {
+  overflow: hidden;
+  line-height: 3;
+  background-color: #689DBB;
+  font-family: "DejaVu Sans Mono", monospace;
+}
+
+/* Navigation links */
 .navbar a {
-  display: inline; 
   float: left;
-  font-size: 16px;
-  color: #ffffff;
+  font-size: 18px;
+  color: white;
   text-align: center;
-  padding: 18px 16px;
+  padding: 14px 18px;
   text-decoration: none;
 }
 
-/* The dropdown container */
-.dropdown {
+/* The subnavigation menu */
+.subnav {
   float: left;
+  padding: 0;
+  margin: 0;
   overflow: hidden;
 }
 
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 16px;
+/* Subnav button */
+.subnav .subnavbtn{
+  font-size: 18px;
   border: none;
+  outline: none;
   color: white;
-  padding: 24px 16px;
-  background-color: #000000;
+  padding: 14px 18px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #ECECEA;
-  color: #000000;
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn{
+  background-color: #A8C9DD;
+  color: black;
 }
 
-/* Dropdown content (hidden by default) */
-.dropdown-content {
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  left: 50;
+  background-color: #A8C9DD;
+  width: 40%;
+  z-index: 0;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
+/* Style the subnav links */
+
+.subnav-content a {
+  float: left;
+  color: white;
   text-decoration: none;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  padding: 14px 18px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a grey background color on hover */
+
+.subnav-content a:hover{
+  background-color: #eee;
+  color: black;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: #000000;
+  padding: 14px 18px;
+  background-color: #A8C9DD;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content{
   display: block;
-  text-align: left;
 }
 
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color:#ECECEA;
+.container {
+  position: relative;
+/*  padding-left: 220px;*/
+  top: 40px;
+  margin-left: 80px;
+  margin-bottom: 8px;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'DejaVu Sans Mono', monospace;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
+.filterName {
+  font-family: 'DejaVu Sans Mono', monospace;
+  color: #3985B1;
+  font-size: 24px;
 }
 
+/* Hide original Checkbox*/
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
 
-
-
-
-
- 
+ /*customize new checkbox*/
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 110;
+  padding: 6px;
+  margin: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ffffff;
+  border-radius: 60%;
+}
