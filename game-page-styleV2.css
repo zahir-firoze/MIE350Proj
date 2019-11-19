@@ -1,0 +1,333 @@
+html, body {
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+/* ---page title--- */
+
+.page-title {
+  font-family: 'DejaVu Sans Mono', monospace;
+  color: #3985B1;
+  font-size: 40px;
+}
+/* ---navigation--- */
+.navbar, .subnavbtn {
+  overflow: hidden;
+  line-height: 1;
+  background-color: #689DBB;
+  font-family: "DejaVu Sans Mono", monospace;
+}
+
+/* Navigation links */
+.navbar a {
+  float: left;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  padding: 14px 18px;
+  text-decoration: none;
+}
+
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Subnav ('Filter') button */
+.subnav .subnavbtn{
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 18px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn{
+  background-color: #A8C9DD;
+  color: black;
+}
+
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 50;
+  background-color: #A8C9DD;
+  width: 40%;
+  z-index: 0;
+}
+
+/* Style the subnav links */
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  padding: 14px 18px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a grey background color on hover */
+
+.subnav-content a:hover{
+  background-color: #eee;
+  color: black;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: #000000;
+  padding: 14px 18px;
+  background-color: #A8C9DD;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content{
+  display: block;
+}
+
+.container {
+  position: relative;
+/*  padding-left: 220px;*/
+  top: 40px;
+  margin-left: 80px;
+  margin-bottom: 8px;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'DejaVu Sans Mono', monospace;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.filterName {
+  font-family: 'DejaVu Sans Mono', monospace;
+  color: #3985B1;
+  font-size: 24px;
+}
+/* ---pathway--- */
+/* pathway bg */
+.pathway {
+  font-family: "arial", sans-serif;
+  font-size: 15px;
+}
+
+/* '#jsx-retrieve-console-type' */
+.pathway a {
+  font-size: 15px;
+  color: black;
+}
+
+/* ---grid container 1---*/
+.grid-container-1 {
+  display: grid;
+  grid-template-columns: auto auto minmax(5%, 10%) auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+  "game-name game-name esrb-rating right"
+  "game-company-price rating esrb-rating right";
+  grid-gap:  5px;
+  font-family: arial;
+  margin-top: 30px;
+}
+
+.grid-container-1 > div {
+  /* background-color: cyan; */
+}
+
+.game-name-div {
+  grid-area: game-name;
+}
+
+.game-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.game-company-price-div {
+  grid-area: game-company-price;
+}
+
+.game-company-name {
+  font-size: 15px;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.game-price {
+  font-size: 20px;
+}
+
+.rating-div {
+  grid-area: rating;
+  align-self: center;
+}
+
+.rating-value {
+  display: inline;
+}
+
+/* ---star rating---*/
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none;}
+.rating > label:before {
+  margin: 5px;
+  font-size: 2vw;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+/* ---^star rating--- */
+
+.esrb-rating-div {
+  grid-area: esrb-rating;
+}
+
+.esrb-rating-div .esrb-rating {
+  width: 8vw;
+  height: auto;
+}
+
+.right-div {
+  grid-area: right;
+}
+
+.right-div > div {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.grid-container-1 .rating {
+  grid-area: "rating";
+}
+
+.grid-container-1 .right-div {
+  grid-area: "right";
+}
+
+.genre span, .developer span, .release-date span, .number-of-players span, .rating-div span {
+  font-style: italic;
+}
+
+/* ---grid container 2---*/
+.grid-container-2 {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: auto;
+  grid-template-areas: "game-cover desc-store-rev";
+  grid-gap:  5px;
+  /* background-color: lightgrey; */
+  font-family: arial;
+}
+
+.grid-container-2 > div {
+  /* background-color: magenta; */
+}
+
+.grid-container-2 .game-cover-div{
+  grid-area: game-cover;
+}
+
+.grid-container-2 .game-cover {
+  width: 28vw;
+  height: auto;
+  padding-right: 10px;
+  align-self: center;
+
+  /* QUES: how to align center vertically? */
+}
+
+.grid-container-2 .desc-store-rev-div {
+  grid-area: desc-store-rev;
+}
+
+.game-description h3, .store-availability h3, .review h3{
+  font-style: italic;
+}
+
+.review h3{
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+.review span {
+  display: block;
+}
+
+.review button:hover {
+  cursor: pointer;
+}
+
+.review  .show-all-reviews{
+  font-size: 80%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  color: blue;
+  background-color: inherit;
+}
+
+.review .write-a-review {
+   display: block;
+   border: none;
+   border-radius: 5px;
+   padding: 0.25rem 0.5rem;
+   margin: 10px 0px 5px 0px;
+   text-decoration: none;
+   background: #689DBB;
+   color: white;
+   font-size: 80%;
+   text-align: center;
+   transition: background 50ms ease-in-out;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+}
+
+.review .write-a-review:hover {
+  background: #A8C9DD;
+}
