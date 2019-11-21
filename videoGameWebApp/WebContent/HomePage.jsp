@@ -4,11 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<head>
+  <link rel="stylesheet" href="style.css">
+<head>
+
 </head>
 <body>
 <header>
-			<h1 class="page-title">GameCheck</h1>
+			<img src="img/GameCheck-logo.png">
+			<br>
 </header>
 
 		<div class="navbar">
@@ -25,20 +29,18 @@
 		</div>
 <article>
 <br>
-<head>
-  <link rel="stylesheet" href="test.css">
-</head>
 <div>
 	<header>
 	<span> <h2 class="VideoGameFilter">VIDEO GAME FILTER</h2></span>
 	</header>
     <form method="POST" action='VideoGameController'>
-	<table >
+	
+	<table>
       <tr>
         <td><input type="hidden" name="filterForm" value="videogame"> </input> </td>
-        <td>Genre:</td>
+        <td> <h9 style="color:white";> Genre: </h9></td>
         <td>
-          <select name="genreFilter">
+          <select name="genreFilter" style="height:35px;">
             <option value="genre0">All Games</option>
             <option value="Adventure">Adventure</option>
             <option value="Racing">Racing</option>
@@ -50,13 +52,12 @@
             <option value="Sports">Sports</option>
             <option value="Stealth">Stealth</option>
             <option value="Horror">Horror</option>
-            <option value="Dance">Dance</option>
             <option value="Action">Action</option>
           </select>
         </td>
-        <td>Release Year: </td>
+        <td><h9 style="color:white";>Release Year: </h9></td>
         <td>
-          <select name="yearFilter">
+          <select name="yearFilter" style="height:35px;">
             <option value="year0">All Years</option>
           	<option value="2015"><2015</option>
             <option value="2016">2016</option>
@@ -66,9 +67,9 @@
           </select>
         </td>
 	 <td></td>
-          <td>Price: </td>
+          <td> <h9 style="color:white";> Price: </h9> </td>
           <td>
-            <select name="priceFilter">
+            <select name="priceFilter" style="height:35px;">
             	<option value="price0">All Price Ranges</option>
             	<option value="price1"><$20.00</option>
               <option value="price2">$20.00-$39.99</option>
@@ -77,9 +78,9 @@
             </select>
           </td>
           <td></td>
-            <td>Console: </td>
+            <td> <h9 style="color:white";> Console: </h9></td>
               <td>
-                <select name="consoleFilter">
+                <select name="consoleFilter" style="height:35px;">
                   <option value="console0">All Consoles</option>
                 	<option value="Switch">Switch</option>
                   <option value="3DS">3DS</option>
@@ -89,9 +90,9 @@
                 </select>
               </td>
               <td></td>
-                <td>Max Number of Players:  </td>
+                <td><h9 style="color:white";>Max Number of Players: </h9> </td>
                   <td>
-                    <select name="playerFilter">
+                    <select name="playerFilter" style="height:35px;">
                     	<option value="player0">Any</option>
                     	<option value="1">1</option>
                       <option value="2">2</option>
@@ -109,6 +110,7 @@
     </form>
 </div>
 </article>
+
 <style>* {
 	box-sizing: border-box;
 }
@@ -123,12 +125,10 @@
 
 <article>
 <br>
-<head>
-  <link rel="stylesheet" href="test.css">
-</head>
+
 
 <header>
-	<span> <h2 class="page-name">3DS GAMES</h2></span>
+<span><h2 class="page-name">3DS GAMES</h2></span>
 	<span> <h3 class="page-link"><a href="#3Ds">[See All] </a> </h3></span>
 </header>
 
@@ -161,7 +161,7 @@
 <article>
 <header>
 	<span> <h2 class="page-name">SWITCH GAMES</h2></span>
-	<span> <h3 class="page-link"><a href="#switch">[See All] </a> </h3></span>
+	<span> <h3 class="page-link" style="color:white";><a href="#switch">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
