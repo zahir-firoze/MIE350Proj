@@ -9,7 +9,7 @@
 <body>
 <header>
 			<h1 class="page-title">GameCheck</h1>
-		</header>
+</header>
 
 		<div class="navbar">
 			<%@ include file="NavBar.jsp"%>
@@ -23,8 +23,15 @@
 				<a href="AccessoryHomePage.jsp">Accessories</a>
 				 -->
 		</div>
-
+<article>
+<br>
+<head>
+  <link rel="stylesheet" href="test.css">
+</head>
 <div>
+	<header>
+	<span> <h2 class="VideoGameFilter">VIDEO GAME FILTER</h2></span>
+	</header>
     <form method="POST" action='VideoGameController'>
 	<table >
       <tr>
@@ -101,8 +108,7 @@
     </table>
     </form>
 </div>
-
-
+</article>
 <style>* {
 	box-sizing: border-box;
 }
