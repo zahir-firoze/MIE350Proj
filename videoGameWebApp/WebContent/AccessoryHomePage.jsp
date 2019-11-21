@@ -14,6 +14,7 @@
 		<div class="navbar">
 			<%@ include file="NavBar.jsp"%>
 		</div>
+		<%@ include file="Filter_Accessory_Original.jsp"%>
 <style>* {
 	box-sizing: border-box;
 }
@@ -28,7 +29,7 @@
 <article>
 <br>
 <head>
-  <link rel="stylesheet" href="test.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <div class="img-container">

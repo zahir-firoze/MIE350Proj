@@ -59,7 +59,7 @@ public class PriceRange {
 	public String toString() {
 		String output;
 		if (oneSideRange){
-			output = "PriceRange [ oneSidedLimit=" +upperLimit +", applyGreaterSign=" + applyGreaterSign + "]";
+			output = "PriceRange [ oneSidedLimit=" + oneSidedLimit +", applyGreaterSign=" + applyGreaterSign + "]";
 		}
 		else{
 			output = "PriceRange [ upperLimit=" +upperLimit +", lowerLimit=" + lowerLimit + "]";
