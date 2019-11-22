@@ -19,7 +19,10 @@
 
 </head>
 <body>
-
+	<header>
+				<img src="img/GameCheck-logo.png">
+				<br>
+	</header>
 	<%@ include file="NavBar.jsp"%>
 	<%@ include file="Filter_VideoGame_Original.jsp"%>
 	<style>* {
@@ -37,7 +40,7 @@
   			<link rel="stylesheet" href="style.css">
 		</head>
 		
-		<h1> <c:out value="${videogames.size()}" /> Results</h1>
+		<h2 style="color:white";> <c:out value="${videogames.size()}" /> Results for <c:out value="${userQuery}" /></h2>
 		<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-8 text-left">

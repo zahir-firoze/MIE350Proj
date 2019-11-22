@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.vgi.model.Accessory;
+import com.vgi.tuple.PriceRange;
 import com.vgi.util.DbUtil;
 
 public class AccessoryDao {
@@ -64,8 +65,22 @@ public class AccessoryDao {
 					if (selectedAttributes.get(f) instanceof java.lang.String){
 						sqlQueryStatement = sqlQueryStatement + "='" + value+"'";
 					}
-					else{
-						sqlQueryStatement = sqlQueryStatement + "=" + value;
+					else if (selectedAttributes.get(f) instanceof PriceRange){
+						PriceRange tempPR = (PriceRange) value;
+						
+						
+						if(tempPR.getOneSideRange() && tempPR.getApplyGreaterSign()){
+							//the price range is one sided with a ">" sign
+							sqlQueryStatement = sqlQueryStatement + ">" + tempPR.getOneSidedLimit();
+						}
+						else if(tempPR.getOneSideRange() && !tempPR.getApplyGreaterSign()){
+							//the price range is one sided with a "<" sign
+							sqlQueryStatement = sqlQueryStatement + "<" + tempPR.getOneSidedLimit();
+						}
+						else{
+							//format the query for the two bound price ranges
+							sqlQueryStatement = sqlQueryStatement + ">=" + tempPR.getLowerLimit() + " AND " + columnName + "<=" + tempPR.getUpperLimit() ;
+						}
 					}
 					if (counter < sizeOfFilter){
 						sqlQueryStatement = sqlQueryStatement + " AND";
@@ -85,6 +100,8 @@ public class AccessoryDao {
 				accessory.setConsoleCompatability(rs.getString("ConsoleCompatibility"));
 				accessory.setPrice(rs.getDouble("Price"));
 				accessory.setDescription(rs.getString("Description"));
+				accessory.setImageFileName(rs.getString("imageFileName"));
+				//System.out.println(rs.getString("imageFileName"));
 				accessoriesList.add(accessory);
 			}
 			

@@ -7,10 +7,10 @@
 <title>GameCheck: Accessories</title>
 </head>
 <body>
-<header>
-			<h1 class="page-title">GameCheck</h1>
+		<header>
+			<img src="img/GameCheck-logo.png">
+			<br>
 		</header>
-
 		<div class="navbar">
 			<%@ include file="NavBar.jsp"%>
 		</div>

@@ -20,3 +20,5 @@ In VideoGameController, the inputs from the VideoGameFilter form were processed 
 Added the new package "constants" to store the price ranges from the dropdown filters on the VideoGame Page;
 ======================================================================================================================================
 11/18/2019,Ciel; GameCheck.mdb: changed the imageFileName in VideoGames table and added imageFileName column in accessories; deleted FilterResults and replaced it with FilterResults_VideoGame.jsp and FilterResults_Accessory.jsp; Made jsp files for the filter bars for both Accessory and Videogame; changed PriceRange output for oneSidedLimit;
+======================================================================================================================================
+11/18/2019; Ciel; made alot of jsp files for the two different filters (accessory and videogame), formatted the filter results pages too; new accessories can be filtered

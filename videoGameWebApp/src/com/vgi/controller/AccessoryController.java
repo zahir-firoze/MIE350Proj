@@ -16,8 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+
+import com.vgi.constants.FilterConstants;
 import com.vgi.dao.AccessoryDao;
 import com.vgi.dao.VideoGameDao;
+import com.vgi.tuple.PriceRange;
 /**
  * Servlet implementation class AccessoryController
  */
@@ -26,11 +30,9 @@ public class AccessoryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	private AccessoryDao dao;
-	/*
-	 * Remove TEST_ constants once testing is completed
-	 */
-	private static String TEST_LIST_FILTER_RESULTS = "/TEST_displayFilterResults.jsp";
 	
+	
+	private static String LIST_FILTER_RESULTS = "/FilterResults_Accessory.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -100,11 +102,11 @@ public class AccessoryController extends HttpServlet {
 		//input.put("ConsoleCompatibility","Nintendo3DS");
 		
 		//*************filter accessories action START********************
-		RequestDispatcher view = request
+		/*RequestDispatcher view = request
 				.getRequestDispatcher(TEST_LIST_FILTER_RESULTS);
 		request.setAttribute("accessories", dao.getFilteredAccessories(input));
 		request.setAttribute("accFilters",input.toString());
-		view.forward(request, response);
+		view.forward(request, response);*/
 		//*************filter accessories action END********************
 
 
@@ -116,14 +118,70 @@ public class AccessoryController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		String inputSource =  request.getParameter("filterForm"); //get doPost parameter from the filter form for Accessory
+		boolean requestReceived = false;
+		//see if the doPost was called by the filter form for Accessory
+		if (inputSource.equals("accessory")){
+			/*
+			 * !!!!!!KEEP THE HASH KEY VALUES CONSTANT AS THEY ARE THE DATABASE COLUMN NAMES FOR VIDEOGAME TABLE
+			 */
+			String userQuery =""; //this will display what the user searched for in SimpleText
+			requestReceived = true; // we received a request!
+			/*
+			 * Create the hashmap object that will be used in doGet in order to filter the games by specified categories
+			 */
+			HashMap<String,Object> input = new HashMap<String,Object>();
+			/*
+			 * Format all the inputs to their appropriate values in order to be sent to the doGet method
+			 */
+			String priceValue = request.getParameter("priceFilter");
+			//only add price to filter query if user does not specify "All Price Ranges"
+			if(!priceValue.equals("price0")){
+				PriceRange pr;
+				String userPrice=""; //portray the price in a simple format for results page
+				
+				//determine which price range will be used in the query
+				if(priceValue.equals("price1")){
+					userPrice="<$" + FilterConstants.PRICE_1_UPPER_BOUND;
+					pr = new PriceRange(FilterConstants.PRICE_1_UPPER_BOUND, false );
+				}
+				else if(priceValue.equals("price2")){
+					userPrice="$"+FilterConstants.PRICE_2_LOWER_BOUND + "-$" + FilterConstants.PRICE_2_UPPER_BOUND;
+					pr = new PriceRange(FilterConstants.PRICE_2_LOWER_BOUND,FilterConstants.PRICE_2_UPPER_BOUND);
+				}
+				else if(priceValue.equals("price3")){
+					userPrice="$"+FilterConstants.PRICE_3_LOWER_BOUND+ "-" + FilterConstants.PRICE_3_UPPER_BOUND;
+					pr = new PriceRange(FilterConstants.PRICE_3_LOWER_BOUND,FilterConstants.PRICE_3_UPPER_BOUND);
+				}
+				else {
+					userPrice=">$" + FilterConstants.PRICE_4_LOWER_BOUND;
+					pr = new PriceRange(FilterConstants.PRICE_4_LOWER_BOUND, true);
+				}
+				userQuery = userQuery + "Price is " + userPrice +", ";
+				input.put("Price", pr);
+				
+			}
+			
+			String consoleValue = request.getParameter("consoleFilter");
+			//only add console to filter query if user does not specify "All Consoles"
+			if (!consoleValue.equals("console0")){
+				userQuery = userQuery + " ConsoleCompatibility is " + consoleValue +",";
+				input.put("ConsoleCompatibility", consoleValue);
+			}
+			
+			System.out.println("================================");
+			System.out.println("These are the Filters applied " + input.toString());
+			
+			//prepare the request and send it to the "Filter Results" page for Videogames
+			RequestDispatcher view = request
+					.getRequestDispatcher(LIST_FILTER_RESULTS);
+			request.setAttribute("userQuery", userQuery);
+			request.setAttribute("accessories", dao.getFilteredAccessories(input));
+			view.forward(request, response);
+		}
 
-		/** TODO: CHANGE DESCRIPTION ONCE THE METHOD IS FINALIZED
-		 * This method posts the database query results
-		 * Database query is dynamically created by the hashmap input
-		 */
 		
-        doGet(request, response);
+        //doGet(request, response);
 		
 	}
 

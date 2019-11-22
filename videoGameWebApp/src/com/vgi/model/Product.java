@@ -6,7 +6,7 @@ public class Product {
 	
 	
 	protected String description;
-		
+	protected String imageFileName;	
 
 	public int getUPCNumber(){
 		return upcNumber;
@@ -20,6 +20,10 @@ public class Product {
 		return description;
 	}
 	
+	public String getImageFileName(){
+		return imageFileName;
+	}
+	
 	public void setUPCNumber(int upc){
 		this.upcNumber = upc;
 	}
@@ -31,7 +35,9 @@ public class Product {
 	public void setDescription(String description){
 		this.description = description;
 	}
-	
+	public void setImageFileName(String imageFileName){
+    	this.imageFileName = imageFileName;
+	}
 	@Override
 	public String toString() {
 		return "upcNumber=" + upcNumber + ", price=" + price+ ", description=" + description;

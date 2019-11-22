@@ -19,9 +19,12 @@
 
 </head>
 <body>
-
+<header>
+			<img src="img/GameCheck-logo.png">
+			<br>
+</header>
 	<%@ include file="NavBar.jsp"%>
-	<%@ include file="Filter_VideoGame_Original.jsp"%>
+	<%@ include file="Filter_Accessory_Original.jsp"%>
 	<style>* {
 					box-sizing: border-box;
 				}
@@ -37,14 +40,12 @@
   			<link rel="stylesheet" href="style.css">
 		</head>
 		
-		<h1>Video Game Filter Results</h1>
 		<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-8 text-left">
 				<br> <br>
 
-				There are  <B><c:out
-						value="${accessories.size()}" /> search results</B> from your database query <br>
+				<h2 style="color:white";> <c:out value="${accessories.size()}" /> Result(s) for <c:out value="${userQuery}" /> </h1>
 				<br>
 				<article>
 					<head>
@@ -55,7 +56,7 @@
 						<c:forEach items="${accessories}" var="ac">
 						<div class="img-container">
 							<img src=<c:out value="${ac.getImageFileName()}" /> alt=<c:out value="${ac.getImageFileName()}" /> style="width:100%">
-							<span class="caption"><c:out value="${ac.getTitle()}" /></span>
+							<span class="caption"><c:out value="${ac.getName()}" /></span>
 						</div>
 						</c:forEach>
 

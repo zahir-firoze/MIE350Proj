@@ -3,6 +3,7 @@ package com.vgi.model;
 public class Accessory extends Product {
 	private String name;
 	private String consoleCompatability;
+	
 	public String getName(){
 		return name;
 	}

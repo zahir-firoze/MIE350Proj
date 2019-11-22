@@ -11,12 +11,10 @@
     <form method="POST" action='AccessoryController'>
 	<table >
       <tr>
-        <td><input type="hidden" name="filterForm" value="videogame"> </input> </td>
-          
-	 <td></td>
-          <td>Price: </td>
+        <td><input type="hidden" name="filterForm" value="accessory"> </input> </td>
+          <td> <h9 style="color:white";> Price: </h9> </td>
           <td>
-            <select name="priceFilter">
+            <select name="priceFilter" style="height:35px;">
             	<option value="price0">All Price Ranges</option>
             	<option value="price1"><$20.00</option>
               <option value="price2">$20.00-$39.99</option>
@@ -25,9 +23,9 @@
             </select>
           </td>
           <td></td>
-            <td>ConsoleCompatibility: </td>
+            <td> <h9 style="color:white";> ConsoleCompatability: </h9></td>
               <td>
-                <select name="consoleFilter">
+                <select name="consoleFilter" style="height:35px;">
                   <option value="console0">All Consoles</option>
                 	<option value="Switch">Switch</option>
                   <option value="3DS">3DS</option>
@@ -36,7 +34,7 @@
                 	<option value="PS Vita">PS Vita</option>
                 </select>
               </td>
-              <td></td>
+                    <td></td>
                       <td>
                         
                         <input type="submit" value="Apply Filter">

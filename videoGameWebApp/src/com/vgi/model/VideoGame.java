@@ -16,7 +16,7 @@ public class VideoGame extends Product{
 		
 		private String genre;
 		private String esrbRating;
-		private String imageFileName;
+		
 		//date variable
 		private Date releaseDate;
 		
@@ -50,10 +50,7 @@ public class VideoGame extends Product{
 			return esrbRating;
 		}
 		
-		public String getImageFileName(){
-			return imageFileName;
-		}
-		
+
 		public Date getReleaseDate(){
 			return releaseDate;
 		}
@@ -88,15 +85,14 @@ public class VideoGame extends Product{
 			this.esrbRating = esrbRating;
 		}
 		
-		public void setImageFileName(String imageFileName){
-			this.imageFileName = imageFileName;
-		}
+
 		
 		public void setReleaseDate(Date releaseDate){
 			this.releaseDate = releaseDate;
 		}
+
 		@Override
 		public String toString() {
-			return "Video Game [" + super.toString() +", console=" + console +", maxPlayers=" + maxPlayers + ", consumerRating="+ consumerRating+ ", title="+ title + ", developer=" + developer + ",  genre="+ genre+ ", releaseDate="+ releaseDate+ ", esrbRating="+ esrbRating + ", imageFileName="+ imageFileName+"]";
+			return "Video Game [" + super.toString() +", console=" + console +", maxPlayers=" + maxPlayers + ", consumerRating="+ consumerRating+ ", title="+ title + ", developer=" + developer + ",  genre="+ genre+ ", releaseDate="+ releaseDate+ ", esrbRating="+ esrbRating +"]";
 		}
 }
