@@ -1,0 +1,271 @@
+html, body {
+  background-color: #3E4F8B;
+}
+
+.page-title {
+  font-family: 'DejaVu Sans Mono', monospace;
+  color: #FFFFFF;
+  font-size: 40px;
+}
+
+a {
+	color: white;
+}
+
+h2 {
+  font-family: "Arial" ;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+h9 {
+  font-family: "Arial" ;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+h3 {
+  color: white;
+}
+
+
+/* The navigation menu */
+.navbar, .subnavbtn {
+  overflow: hidden;
+  line-height: 3;
+  background-color: #689DBB;
+  font-family: "DejaVu Sans Mono", monospace;
+}
+
+/* Navigation links */
+.navbar a {
+  float: left;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  padding: 14px 18px;
+  text-decoration: none;
+}
+
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Subnav button */
+.subnav .subnavbtn{ 
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 18px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn{
+  background-color: #A8C9DD;
+  color: black;
+}
+
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 50;
+  background-color: #A8C9DD;
+  width: 40%;
+  z-index: 0;
+}
+
+/* Style the subnav links */
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  padding: 14px 18px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a grey background color on hover */
+
+.subnav-content a:hover{
+  background-color: #FFFFFF;
+  color: black;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: #000000;
+  padding: 14px 18px;
+  background-color: #A8C9DD;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content{
+  display: block;
+}
+
+.container {
+  position: relative;
+/*  padding-left: 220px;*/
+  top: 40px;
+  margin-left: 80px;
+  margin-bottom: 8px;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'DejaVu Sans Mono', monospace;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+/* Hide original Checkbox*/
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+ /*customize new checkbox*/
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 110;
+  padding: 6px;
+  margin: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ffffff;
+  border-radius: 60%;
+}
+
+article {
+  float: left;
+  width: 100%;
+}
+
+h1.page-title {
+  font-family: "Impact", Charcoal, sans-serif;
+  font-style: normal;
+  color: #FFFFFF;
+  font-size: 45px;
+  background-color: white;
+}
+
+h2 {
+  font-family: "Impact";
+  font-style: normal;
+  color: #FFFFFF;
+  font-size: 45px;
+
+}
+
+.page-link {
+	color: white;
+}
+
+h4 {
+  padding: 20px;
+  color: white;
+  font-size: 30px;
+}
+
+.dropdown {
+  font-family: "Century Gothic";
+  font-size: 75px;
+}
+
+.img-container {
+	float: left;
+	width: 16.66%;
+  height: 250px;
+	padding: 10px;
+	text-align: center;
+}
+
+.clearfix:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.img-container2 {
+	float: left;
+	width: 16.6%;
+	padding: 5px;
+	text-align: center;
+}
+
+.page-name {
+  font-family: "Arial" ;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  text-align: left;
+}
+
+.page-link {
+  font-family: "Arial", Charcoal, sans-serif;
+  font-style: normal;
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+.caption {
+    display: block;
+    text-decoration: underline;
+    font-family: "Arial" ;
+    font-style: normal;
+    color: #FFFFFF;
+}
+
+.container {
+  padding-left: 220px;
+  top: 40px;
+  align: left;
+  margin-bottom: 8px;
+  padding: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'Century Gothic', sans-serif;;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.filterName {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.FilterBtn {
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+  border: none;
+  color: white;
+  padding: 10px;
+  background-color: white;
+}
+

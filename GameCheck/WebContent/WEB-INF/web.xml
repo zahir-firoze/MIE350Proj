@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>videoGameStore</display-name>
+  <welcome-file-list>
+    <welcome-file>HomePage.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>HomePage</display-name>
+    <servlet-name>HomePage</servlet-name>
+    <servlet-class>com.vgi.controller.HomePage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomePage</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AccessoryController</display-name>
+    <servlet-name>AccessoryController</servlet-name>
+    <servlet-class>com.vgi.controller.AccessoryController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccessoryController</servlet-name>
+    <url-pattern>/accessory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CustomerRatingReviewController</display-name>
+    <servlet-name>CustomerRatingReviewController</servlet-name>
+    <servlet-class>com.vgi.controller.CustomerRatingReviewController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerRatingReviewController</servlet-name>
+    <url-pattern>/crr</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VideoGameController</display-name>
+    <servlet-name>VideoGameController</servlet-name>
+    <servlet-class>com.vgi.controller.VideoGameController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VideoGameController</servlet-name>
+    <url-pattern>/videogame</url-pattern>
+  </servlet-mapping>
+</web-app>
