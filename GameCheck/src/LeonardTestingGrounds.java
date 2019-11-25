@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.vgi.dao.VideoGameDao;
+import com.vgi.dao.InventoryDao;
 
 /**
  * Servlet implementation class LeonardTestingGrounds
@@ -36,6 +37,8 @@ public class LeonardTestingGrounds extends HttpServlet {
 			RequestDispatcher view = request
 			.getRequestDispatcher(OUTPUT_PAGE);
 
+	/*		
+	 
 	VideoGameDao dao = new VideoGameDao(); //declared your dao object here
 	
 	//format your parameters here 
@@ -47,12 +50,23 @@ public class LeonardTestingGrounds extends HttpServlet {
 	
 	System.out.println(input.toString());
 	
+
 	
 	//you can set as many attributes as you want to the request
 	//just specify the name of the attribute in the <c:out value="${attribute1}" />  elements :)
 	request.setAttribute("attribute1", dao.getFilteredVideoGames(input)); //put the return object from your dao here
 	request.setAttribute("attribute2", input.toString());
+	
+	*/
+
+	
+	InventoryDao dao = new InventoryDao();
+	int upc = 454965;
+	request.setAttribute("attribute1", dao.getProductInventory(upc));
 	view.forward(request, response);
+	System.out.println(dao.getProductInventory(upc).toString());
+	
+	
 	}
 
 	/**
