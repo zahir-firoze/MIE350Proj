@@ -19,9 +19,22 @@ public class CustomerRatingReview {
 		return review;
 	}
 	
+	public void setUPCNumber(int upcNumber){
+		this.upcNumber = upcNumber;
+	}
+	public void setRating(double rating){
+		this.rating = rating;
+	}
+	public void setEmail(String email){
+		this.email = email;
+	}
+	public void setReview(String review){
+		this.review = review;
+	}
+	
 	@Override 
 	public String toString(){
-		return "CustomerRatingReview [ upcNumber=${upcNumber}, email=${email}, rating=${rating}, review=${review}";
+		return "CustomerRatingReview [ upcNumber="+upcNumber+", email="+email+", rating="+rating+", review="+review+" ]";
 	}
 	
 }

@@ -3,6 +3,7 @@ package com.vgi.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.vgi.dao.AccessoryDao;
 import com.vgi.dao.CustomerRatingReviewDao;
+import com.vgi.model.CustomerRatingReview;
 
 /**
  * Servlet implementation class CustomerRatingReviewController
@@ -22,6 +24,9 @@ public class CustomerRatingReviewController extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+    
+    private static String TEST_CRR_OUTPUT = "/crr_test.jsp";
+    
     public CustomerRatingReviewController() {
         super();
         dao = new CustomerRatingReviewDao();
@@ -32,14 +37,21 @@ public class CustomerRatingReviewController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<p><b>This is the CustomerRatingReviewController Servlet from doGet method</b> </p>");
-		out.println("</body>");
-		out.println("</html>");
+	
+		//add test
+		CustomerRatingReview crr = new CustomerRatingReview();
 		
+		crr.setEmail("ciel.emond@gmail.com");
+		crr.setRating(3.2);
+		crr.setReview("hallo this will work");
+		crr.setUPCNumber(1234567);
+		RequestDispatcher view = request
+				.getRequestDispatcher(TEST_CRR_OUTPUT );
+		
+		//retrieve a VideoGame object whose info will be displayed in the product page
+		request.setAttribute("outputMessage", dao.getProductAverageRating(454965));
+		//TODO put store info, reviews and inventory request.setAttribute
+		view.forward(request, response);
 		// TODO add new actions accordingly
 //				/**
 //				 * This class retrieves the appropriate 'action' found on the JSP pages:

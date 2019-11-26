@@ -107,7 +107,9 @@
       <div class="store-availability">
         <h3>Store Availability: </h3>
         <!-- for each store, retrieve store name, address and display in <span> tag -->
-        <span><c:out value="${Store.Name()}" />, <c:out value="${Store.getAddress()}" /></span>
+        <c:forEach items="${storeList}" var="store">
+        <span><c:out value="${store.getName()}" />, <c:out value="${store.getAddress()}" /></span>
+        </c:forEach>
 
       </div>
 
