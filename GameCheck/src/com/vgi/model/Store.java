@@ -11,15 +11,15 @@ public class Store {
 	private String daysOfOperation;
 	
 	//TODO see what object gets returned when parsing openingTime and closingTime from the table
-	private int openingTime;
-	private int closingTime;
+	private String openingTime;
+	private String closingTime;
 	
 	//TODO change return type of get method
-	public int getOpeningTime(){
+	public String getOpeningTime(){
 		return openingTime;
 	}
 	//TODO change return type of get method
-	public int getClosingTime(){
+	public String getClosingTime(){
 		return closingTime;	
 	}
 	
@@ -47,6 +47,49 @@ public class Store {
 	public String getDaysOfOperation(){
 		return daysOfOperation;
 	}
+	
+	//setters
+	
+	public void setStoreID(int storeID){
+		this.storeID = storeID;
+	}
+	
+	public void setName(String name){
+		this.name = name;
+	}
+	
+	public void setStreetAddress(String StreetAddress){
+		this.address = StreetAddress;
+	}
+	
+	public void setPostalCode(String postalCode){
+		this.postalCode = postalCode;
+	}
+	
+	public void setCity(String city){
+		this.city = city;
+	}
+	
+	public void setProvince(String province){
+		this.province = province;
+	}
+	
+	public void setOpeningTime(String openingTime){
+		this.openingTime = openingTime;
+	}
+	
+	public void setClosingTime(String closingTime){
+		this.closingTime = closingTime;
+	}
+	
+	public void setDaysofOperation(String daysofOperation){
+		this.daysofOperation = daysofOperation;
+	}
+
+	public void setTelephoneNumber(String telephoneNumber){
+		this.telephoneNumber = telephoneNumber;
+	}
+	
 	
 	@Override
 	public String toString(){
