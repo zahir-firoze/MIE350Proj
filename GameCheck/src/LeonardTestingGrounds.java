@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vgi.dao.ConsoleDao;
 import com.vgi.dao.VideoGameDao;
 import com.vgi.dao.InventoryDao;
 
@@ -60,12 +61,17 @@ public class LeonardTestingGrounds extends HttpServlet {
 	*/
 
 	
-	InventoryDao dao = new InventoryDao();
+/*	InventoryDao dao = new InventoryDao();
 	int upc = 454965;
 	request.setAttribute("attribute1", dao.getProductInventory(upc));
 	view.forward(request, response);
-	System.out.println(dao.getProductInventory(upc).toString());
+	System.out.println(dao.getProductInventory(upc).toString());*/
 	
+	ConsoleDao cdao = new ConsoleDao();
+	String name = "Playstation 4";
+	request.setAttribute("attribute1", cdao.getConsoleInfo(name));
+	view.forward(request, response);
+	System.out.println(cdao.getConsoleInfo(name).toString());
 	
 	}
 
