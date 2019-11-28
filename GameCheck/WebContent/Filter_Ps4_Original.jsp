@@ -16,6 +16,8 @@
 	<table>
       <tr>
         <td><input type="hidden" name="filterForm" value="videogame"> </input> </td>
+        <!-- this hidden field indicates that the filter request is coming from ps4 games page-->
+         <td><input type="hidden" name="presetConsole" value="true"> </input> </td>
         <td> <h9 style="color:white";> Genre: </h9></td>
         <td>
           <select name="genreFilter" style="height:35px;">

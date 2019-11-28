@@ -72,6 +72,9 @@ public class VideoGameController extends HttpServlet {
 		 */
 		
 		String inputSource =  request.getParameter("filterForm");
+		//TODO add logic to redirect the filter results to their corresonding page if they
+		//are already sorted by console
+		String requestFromPresetConsole = request.getParameter("presetConsole");
 		boolean requestReceived = false;
 		if (inputSource.equals("videogame")){
 			/*
