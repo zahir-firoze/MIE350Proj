@@ -42,7 +42,7 @@ public class StoreDao {
 				store.setProvince(rs.getString("Province"));
 				store.setOpeningTime(rs.getString("OpeningTime"));
 				store.setClosingTime(rs.getString("ClosingTime"));
-				store.setDaysofOperation(rs.getString("DaysofOperation"));
+				store.setDaysOfOperation(rs.getString("DaysofOperation"));
 				store.setTelephoneNumber(rs.getString("TelephoneNumber"));
 			}
 		} catch (SQLException e) {

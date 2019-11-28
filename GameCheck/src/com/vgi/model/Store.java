@@ -2,7 +2,7 @@ package com.vgi.model;
 
 public class Store {
 	private int storeID;
-	private int telephoneNumber;
+	private String telephoneNumber;
 	private String name;
 	private String address;
 	private String postalCode;
@@ -26,7 +26,7 @@ public class Store {
 	public int getStoreID(){
 		return storeID;
 	}
-	public int getTelephoneNumber(){
+	public String getTelephoneNumber(){
 		return telephoneNumber;
 	}
 	public String getAddress(){
@@ -82,8 +82,8 @@ public class Store {
 		this.closingTime = closingTime;
 	}
 	
-	public void setDaysofOperation(String daysofOperation){
-		this.daysofOperation = daysofOperation;
+	public void setDaysOfOperation(String daysOfOperation){
+		this.daysOfOperation = daysOfOperation;
 	}
 
 	public void setTelephoneNumber(String telephoneNumber){
@@ -93,7 +93,17 @@ public class Store {
 	
 	@Override
 	public String toString(){
-		return "Store [ storeID=${storeID}, telephoneNumber=${telephoneNumber}, name=${name},address=${address}, postalCode=${postalCode}, city=${city}, province=${province}, daysOfOperation=${daysOfOperation}, openingTime=${openingTime}, closingTime=${closingTime} ]";
+		//return "Store [ storeID=${storeID}, telephoneNumber=${telephoneNumber}, name=${name},address=${address}, postalCode=${postalCode}, city=${city}, province=${province}, daysOfOperation=${daysOfOperation}, openingTime=${openingTime}, closingTime=${closingTime} ]";
+		
+		return "Store [StoreID= " +storeID +", Name = " +name
+		+ ", StreetAddress = " +address +", PostalCode = " +postalCode
+		+ ", City = " +city
+		+ ", Province = " +province
+		+ ", OpeningTime = " +openingTime
+		+ ", ClosingTime = " +closingTime
+		+ ", DaysofOperation = " +daysOfOperation
+		+ ", TelephoneNumber = " +telephoneNumber
+		+ " ]";
 	}
 	
 
