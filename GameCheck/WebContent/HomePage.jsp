@@ -17,15 +17,6 @@
 
 		<div class="navbar">
 			<%@ include file="NavBar.jsp"%>
-			<!-- 	<a href="#allProducts">All Video Games</a>
-				<a href="#newreleases">New Releases</a>
-  			<a href="#3ds">3DS</a>
-  			<a href="#switch">Switch</a>
-  			<a href="#ps4">PS4</a>
-				<a href="#psvita">PS Vita</a>
-  			<a href="#xbox">XBox</a>
-				<a href="AccessoryHomePage.jsp">Accessories</a>
-				 -->
 		</div>
 <article>
 <br>
@@ -50,7 +41,7 @@
 
 <header>
 <span><h2 class="page-name">3DS GAMES</h2></span>
-	<span> <h3 class="page-link"><a href="#3Ds">[See All] </a> </h3></span>
+	<span> <h3 class="page-link"><a href="3dsHomePage.jsp">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
@@ -82,7 +73,7 @@
 <article>
 <header>
 	<span> <h2 class="page-name">SWITCH GAMES</h2></span>
-	<span> <h3 class="page-link" style="color:white";><a href="#switch">[See All] </a> </h3></span>
+	<span> <h3 class="page-link" style="color:white";><a href="SwitchHomePage.jsp">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
@@ -121,7 +112,7 @@
 <br>
 <header>
 	<span> <h2 class="page-name">PS4 GAMES</h2></span>
-	<span> <h3 class="page-link"><a href="#ps4">[See All] </a> </h3></span>
+	<span> <h3 class="page-link"><a href="Ps4HomePage.jsp">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
@@ -150,7 +141,7 @@
 <br>
 <header>
 	<span> <h2 class="page-name">PS VITA GAMES</h2></span>
-	<span> <h3 class="page-link"><a href="#psvita">[See All] </a> </h3></span>
+	<span> <h3 class="page-link"><a href="PsvitaHomePage.jsp">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
@@ -179,7 +170,7 @@
 <br>
 <header>
 	<span> <h2 class="page-name">XBOX GAMES</h2></span>
-	<span> <h3 class="page-link"><a href="#xbox">[See All] </a> </h3></span>
+	<span> <h3 class="page-link"><a href="XboxHomePage.jsp">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
