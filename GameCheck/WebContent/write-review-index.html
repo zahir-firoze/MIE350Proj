@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Confirm Email to Rate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="write-review.css">
+  </head>
+  <body>
+    <header>
+      <div class="page-title">
+        <img  src="GameCheck-logo.png" alt="Game Check logo">
+      </div>
+    </header>
+    <p class="instructions-text ">Review for [console] > [game]:</p>
+
+    <div class="rating-div">
+      <fieldset class="rating">
+        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+
+        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+
+        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+
+        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+
+        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+      </fieldset>
+    </div>
+
+
+    <form>
+      <div class="email-grid-container">
+        <div class="email-header">
+          Email:
+        </div>
+        <span>[eml address static]</span>
+      </div>
+
+      <br>
+      <div class="review-grid-container">
+        <div class="review-header">
+          Review:
+        </div>
+
+        <br>
+        <textarea id="review-textbox" rows="20" cols="50" name="review-textbox">[if new review, blank; if editing review, display orginal review text
+        </textarea>
+      </div>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+  </html>

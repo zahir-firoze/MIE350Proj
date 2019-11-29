@@ -1,0 +1,39 @@
+html, body {
+  background-color: #3E4F8B;
+  text-align: center;
+  font-family:
+}
+
+.page-title {
+  text-align: left;
+}
+.page-title img {
+  width: 30vw;
+}
+
+.message-text {
+  font-family: 'DejaVu Sans Mono', monospace;
+  font-size: 3vw;
+  color: white;
+  line-height: 1;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.go-back-btn {
+  border: none;
+  font-family: 'DejaVu Sans Mono', monospace;
+  padding: 0.5rem 0.9rem;
+  text-decoration: none;
+  background: #689DBB;
+  color: white;
+  font-size: 2.5vw;
+  text-align: center;
+  transition: background 50ms ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.go-back-btn:hover {
+    background: #A8C9DD;
+}

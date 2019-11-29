@@ -1,0 +1,49 @@
+html, body {
+  background-color: #3E4F8B;
+  text-align: center;
+  font-family:
+}
+
+.page-title {
+  text-align: left;
+}
+.page-title img {
+  width: 30vw;
+}
+
+.instructions-text {
+  font-family: 'DejaVu Sans Mono', monospace;
+  font-size: 3vw;
+  color: white;
+  line-height: 1;
+  background-color: #689DBB;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+input[type=submit] {
+  border: none;
+  font-family: 'DejaVu Sans Mono', monospace;
+  padding: 0.5rem 0.9rem;
+  margin: 10px 0px 5px 50px;
+  text-decoration: none;
+  background: #689DBB;
+  color: white;
+  font-size: 2vw;
+  text-align: center;
+  transition: background 50ms ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type=text] {
+  width: 25vw;
+  padding: 12px 10px;
+  margin: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type=submit]:hover {
+  background: #A8C9DD;
+}
