@@ -2,11 +2,11 @@
 	<body>
 		<div class="navbar">
 		    <a href="HomePage.jsp">Video Games</a>
-		    <a href="3dsHomePage.jsp">3Ds</a>
-		    <a href="SwitchHomePage.jsp">Switch</a>
-		    <a href="Ps4HomePage.jsp">PS4</a>
-		    <a href="XboxHomePage.jsp">Xbox</a>
-		    <a href="PsvitaHomePage.jsp">PS Vita</a>
+		    <a href="/GameCheck/ConsoleController?action=display&name=3DS">3Ds</a>
+		    <a href="/GameCheck/ConsoleController?action=display&name=Switch">Switch</a>
+		    <a href="/GameCheck/ConsoleController?action=display&name=Playstation 4">Playstation 4</a>
+		    <a href="/GameCheck/ConsoleController?action=display&name=Xbox One">Xbox</a>
+		    <a href="/GameCheck/ConsoleController?action=display&name=PS Vita">PS Vita</a>
 		    <a href="AccessoryHomePage.jsp">Accessories</a>
 		  </div>
 		

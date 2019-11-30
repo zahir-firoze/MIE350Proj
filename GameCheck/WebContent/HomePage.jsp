@@ -41,7 +41,7 @@
 
 <header>
 <span><h2 class="page-name">3DS GAMES</h2></span>
-	<span> <h3 class="page-link"><a href="3dsHomePage.jsp">[See All] </a> </h3></span>
+	<span> <h3 class="page-link"><a href="/GameCheck/ConsoleController?action=display&name=3DS">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
@@ -73,7 +73,7 @@
 <article>
 <header>
 	<span> <h2 class="page-name">SWITCH GAMES</h2></span>
-	<span> <h3 class="page-link" style="color:white";><a href="SwitchHomePage.jsp">[See All] </a> </h3></span>
+	<span> <h3 class="page-link" style="color:white";><a href="/GameCheck/ConsoleController?action=display&name=Switch">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
@@ -111,8 +111,8 @@
 <article>
 <br>
 <header>
-	<span> <h2 class="page-name">PS4 GAMES</h2></span>
-	<span> <h3 class="page-link"><a href="Ps4HomePage.jsp">[See All] </a> </h3></span>
+	<span> <h2 class="page-name">Playstation 4 GAMES</h2></span>
+	<span> <h3 class="page-link"><a href="/GameCheck/ConsoleController?action=display&name=Playstation 4">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
@@ -141,7 +141,7 @@
 <br>
 <header>
 	<span> <h2 class="page-name">PS VITA GAMES</h2></span>
-	<span> <h3 class="page-link"><a href="PsvitaHomePage.jsp">[See All] </a> </h3></span>
+	<span> <h3 class="page-link"><a href="/GameCheck/ConsoleController?action=display&name=PS Vita">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">
@@ -170,7 +170,7 @@
 <br>
 <header>
 	<span> <h2 class="page-name">XBOX GAMES</h2></span>
-	<span> <h3 class="page-link"><a href="XboxHomePage.jsp">[See All] </a> </h3></span>
+	<span> <h3 class="page-link"><a href="/GameCheck/ConsoleController?action=display&name=Xbox One">[See All] </a> </h3></span>
 </header>
 
 <div class="img-container">

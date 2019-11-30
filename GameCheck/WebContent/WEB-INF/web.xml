@@ -4,15 +4,25 @@
   <welcome-file-list>
     <welcome-file>HomePage.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
+  <!-- <servlet>
     <description></description>
     <display-name>HomePage</display-name>
     <servlet-name>HomePage</servlet-name>
     <servlet-class>com.vgi.controller.HomePage</servlet-class>
-  </servlet>
+  </servlet> 
   <servlet-mapping>
     <servlet-name>HomePage</servlet-name>
     <url-pattern>/home</url-pattern>
+  </servlet-mapping>  -->
+   <servlet>
+    <description></description>
+    <display-name>ConsoleController</display-name>
+    <servlet-name>ConsoleController</servlet-name>
+    <servlet-class>com.vgi.controller.ConsoleController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConsoleController</servlet-name>
+    <url-pattern>/console</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

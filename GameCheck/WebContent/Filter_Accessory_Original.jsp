@@ -23,7 +23,7 @@
             </select>
           </td>
           <td></td>
-            <td> <h9 style="color:white";> ConsoleCompatability: </h9></td>
+            <td> <h9 style="color:white";> Console Compatability: </h9></td>
               <td>
                 <select name="consoleFilter" style="height:35px;">
                   <option value="console0">All Consoles</option>

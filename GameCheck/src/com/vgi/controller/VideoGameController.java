@@ -27,7 +27,19 @@ public class VideoGameController extends HttpServlet {
 	private VideoGameDao dao;
 	
 	//TODO
-	private static String LIST_FILTER_RESULTS = "/FilterResults_VideoGame.jsp";
+	private static String LIST_HOME_FILTER_RESULTS = "/FilterResults_VideoGame.jsp";
+
+	//3DS Console filter results
+	private static String LIST_3DS_FILTER_RESULTS = "/FilterResults_3ds.jsp";
+	//SWITCH Console filter results
+	private static String LIST_SWITCH_FILTER_RESULTS = "/FilterResults_Switch.jsp";
+	//PLAYSTATION 4 Console filter results
+	private static String LIST_PLAYSTATION_4_FILTER_RESULTS = "/FilterResults_Ps4.jsp";
+	//XBOX Console filter results
+	private static String LIST_XBOX_FILTER_RESULTS = "/FilterResults_Xbox.jsp";
+	//PSVITA Console filter results
+	private static String LIST_PSVITA_FILTER_RESULTS = "/FilterResults_Psvita.jsp";
+	
 	private static String DISPLAY_GAME_INFORMATION = "/VideoGameInfoPage.jsp";
 	//create constants for relevant jsp files
     /**
@@ -46,8 +58,11 @@ public class VideoGameController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String forward = "";
 		String action = request.getParameter("action");
+		
+		//if action is display, display the videogame information page
 		if (action.equals("display")){
 			
+			//get the upc number for the videogame
 			int upc = Integer.parseInt(request.getParameter("upc"));
 		
 			
@@ -93,7 +108,7 @@ public class VideoGameController extends HttpServlet {
 			String genreValue = request.getParameter("genreFilter");
 			//only add genre to filter query if user does not specify "All Games"
 			if (!genreValue.equals("genre0")){
-				userQuery = userQuery + "Genre is " + genreValue +", ";
+				userQuery = userQuery + genreValue +" Games, ";
 				input.put("Genre",genreValue);
 			}
 			
@@ -120,9 +135,10 @@ public class VideoGameController extends HttpServlet {
 					rdr = new ReleaseDateRange(startDate,endDate);
 				}
 				
-				userQuery = userQuery + "Year is " + userYear + ", ";
+				userQuery = userQuery + "released in " + userYear + ", ";
 				input.put("Release_Date",rdr);
 			}
+			
 			String priceValue = request.getParameter("priceFilter");
 			//only add price to filter query if user does not specify "All Price Ranges"
 			if(!priceValue.equals("price0")){
@@ -131,22 +147,22 @@ public class VideoGameController extends HttpServlet {
 				
 				//determine which price range will be used in the query
 				if(priceValue.equals("price1")){
-					userPrice="<$" + FilterConstants.PRICE_1_UPPER_BOUND;
+					userPrice="<$" + String.format("%.2f",FilterConstants.PRICE_1_UPPER_BOUND);
 					pr = new PriceRange(FilterConstants.PRICE_1_UPPER_BOUND, false );
 				}
 				else if(priceValue.equals("price2")){
-					userPrice="$"+FilterConstants.PRICE_2_LOWER_BOUND + "-$" + FilterConstants.PRICE_2_UPPER_BOUND;
+					userPrice="$"+String.format("%.2f",FilterConstants.PRICE_2_LOWER_BOUND) + "-$" + String.format("%.2f",FilterConstants.PRICE_2_UPPER_BOUND);
 					pr = new PriceRange(FilterConstants.PRICE_2_LOWER_BOUND,FilterConstants.PRICE_2_UPPER_BOUND);
 				}
 				else if(priceValue.equals("price3")){
-					userPrice="$"+FilterConstants.PRICE_3_LOWER_BOUND+ "-" + FilterConstants.PRICE_3_UPPER_BOUND;
+					userPrice="$"+String.format("%.2f",FilterConstants.PRICE_3_LOWER_BOUND) + "-" + String.format("%.2f",FilterConstants.PRICE_3_UPPER_BOUND);
 					pr = new PriceRange(FilterConstants.PRICE_3_LOWER_BOUND,FilterConstants.PRICE_3_UPPER_BOUND);
 				}
 				else {
-					userPrice=">$" + FilterConstants.PRICE_4_LOWER_BOUND;
+					userPrice=">$" + String.format("%.2f",FilterConstants.PRICE_4_LOWER_BOUND);
 					pr = new PriceRange(FilterConstants.PRICE_4_LOWER_BOUND, true);
 				}
-				userQuery = userQuery + " Price is " + userPrice +",";
+				userQuery = userQuery + " Price Range " + userPrice +",";
 				input.put("Price", pr);
 				
 			}
@@ -173,7 +189,7 @@ public class VideoGameController extends HttpServlet {
 					int player = Integer.parseInt(playerValue);
 					mp = new MaxPlayer(player);
 				}
-				userQuery = userQuery + " Number of Players is " + userPlayer + ",";
+				userQuery = userQuery + " with maximum " + userPlayer + " players,";
 				//add the player specification to the hashmap
 				input.put("Max_Players", mp);
 				
@@ -181,9 +197,27 @@ public class VideoGameController extends HttpServlet {
 			System.out.println("================================");
 			System.out.println("These are the Filters applied " + input.toString());
 			
-			//prepare the request and send it to the "Filter Results" page for Videogames
+			//prepare the request and send it to the appropriate "Filter Results" page for Videogames
 			RequestDispatcher view = request
-					.getRequestDispatcher(LIST_FILTER_RESULTS);
+					.getRequestDispatcher(LIST_HOME_FILTER_RESULTS);
+			
+			//forward to corresponding home pages based on console name parameter
+			if (consoleValue.equals("3DS")){
+				 view = request.getRequestDispatcher(LIST_3DS_FILTER_RESULTS);
+			}
+			else if (consoleValue.equals("Switch")){
+				 view = request.getRequestDispatcher(LIST_SWITCH_FILTER_RESULTS);
+			}
+			else if (consoleValue.equals("Playstation 4")){
+				System.out.println(LIST_PLAYSTATION_4_FILTER_RESULTS );
+				 view = request.getRequestDispatcher(LIST_PLAYSTATION_4_FILTER_RESULTS);
+			}
+			else if (consoleValue.equals("Xbox One")){
+				 view = request.getRequestDispatcher(LIST_XBOX_FILTER_RESULTS);
+			}
+			else if (consoleValue.equals("PS Vita")){
+				 view = request.getRequestDispatcher(LIST_PSVITA_FILTER_RESULTS);
+			}
 			//request.setAttribute("vgFilters", input.toString());
 			request.setAttribute("userQuery", userQuery);
 			request.setAttribute("videogames", dao.getFilteredVideoGames(input));

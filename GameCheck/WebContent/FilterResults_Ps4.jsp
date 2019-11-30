@@ -53,7 +53,7 @@
 						<c:forEach items="${videogames}" var="vg">
 						<div class="img-container">
 							<img src=<c:out value="${vg.getImageFileName()}" /> alt=<c:out value="${vg.getImageFileName()}" /> style="width:100%">
-							<span class="caption"><c:out value="${vg.getTitle()}" /></span>
+							<span class="caption"> <a href="/GameCheck/VideoGameController?action=display&upc=<c:out value="${vg.getUPCNumber()}" />"><c:out value="${vg.getTitle()}" /> </a></span>
 						</div>
 						</c:forEach>
 

@@ -1,6 +1,7 @@
 package com.vgi.constants;
 
 public class FilterConstants {
+	
 	/*
 	 * these constants are for the price filter
 	 * Upper and LowerBounds are specified depending on the priceFilter Values
