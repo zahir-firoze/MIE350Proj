@@ -60,8 +60,10 @@
 <img src="img/Switch_LinksAwakening.jpg" alt="LinksAwakening" style="width:100%">
 <span class="caption"><a href="/GameCheck/VideoGameController?action=display&upc=454965">The Legend of Zelda: Link's Awakening</a></span>
 </div>
-
+  <span><a href="#console-compatibility"><c:out value="${Console.getInformationURL()}" /></a></span>
+  <span><a href="#console-compatibility"><c:out value="${Console.getPurchaseURL()}" /></a></span>
 </article>
+
 </body>
 
 

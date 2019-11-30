@@ -57,6 +57,10 @@
 </div>
 
 </article>
+
+  <span><a href="#console-compatibility"><c:out value="${Console.getInformationURL()}" /></a></span>
+  <span><a href="#console-compatibility"><c:out value="${Console.getPurchaseURL()}" /></a></span>
+  
 </body>
 
 </html>

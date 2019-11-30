@@ -51,6 +51,9 @@
 <span class="caption"><a href="/GameCheck/VideoGameController?action=display&upc=48915050">Call of Duty: Black Ops: Declassified</a></span>
 </div>
 
+  <span><a href="#console-compatibility"><c:out value="${Console.getInformationURL()}" /></a></span>
+  <span><a href="#console-compatibility"><c:out value="${Console.getPurchaseURL()}" /></a></span>
+
 </article>
 </body>
 

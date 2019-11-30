@@ -36,6 +36,9 @@
 <span class="caption"><a href="/GameCheck/VideoGameController?action=display&upc=7104255">NBA 2K20</a></span>
 </div>
 
+  <span><a href="#console-compatibility"><c:out value="${Console.getInformationURL()}" /></a></span>
+  <span><a href="#console-compatibility"><c:out value="${Console.getPurchaseURL()}" /></a></span>
+
 </article>
 </body>
 
