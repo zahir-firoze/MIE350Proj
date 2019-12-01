@@ -52,7 +52,7 @@
           <input type="hidden" name="upc" value=<c:out value="${VideoGame.getUPCNumber()}" /> >
     <div class="rating-div">
       <!--  <span class="rate-this-title">Rate this title!</span> -->
-      <a class="rating-value"><c:out value="${VideoGame.getConsumerRating()}" /></a>
+      <a class="rating-value"><c:out value="${averageRating}" /></a>
       <br>
 
 

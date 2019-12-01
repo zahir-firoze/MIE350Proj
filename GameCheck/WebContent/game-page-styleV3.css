@@ -88,7 +88,7 @@ a {
 
 .subnav-content a:hover{
   background-color: #eee;
-  color: black;
+  color: white;
   font-size: 18px;
   border: none;
   outline: none;
@@ -162,6 +162,7 @@ a {
 .game-name {
   font-size: 30px;
   font-weight: bold;
+  color: white;
 }
 
 .game-company-price-div {
@@ -249,6 +250,7 @@ fieldset, label {
 
 .grid-container-1 .right-div {
   grid-area: "right";
+  color: white;
 }
 
 .genre span, .developer span, .release-date span, .number-of-players span, .rating-div span {
@@ -289,6 +291,7 @@ fieldset, label {
 
 .game-description h3, .store-availability h3, .reviews h3{
   font-style: italic;
+  color: white;
 }
 
 .reviews h3{
@@ -321,7 +324,7 @@ fieldset, label {
    margin: 10px 0px 5px 0px;
    text-decoration: none;
    background: #689DBB;
-   color: white;
+   color: black;
    font-family: "DejaVu Sans Mono", monospace;
    font-size: 80%;
    text-align: center;
@@ -380,4 +383,5 @@ fieldset, label {
 /* review text */
 .review-text {
   grid-area: review-text;
+  
 }

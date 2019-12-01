@@ -89,7 +89,8 @@ public class VideoGameController extends HttpServlet {
 			//retrieve a list of reviews to display on the videogame page
 			request.setAttribute("CRRList", crrDao.getReviewsForProductPage(upc));
 			
-			
+			//get the average rating from CustomerReviewRating table
+			request.setAttribute("averageRating",String.format("%.2f",crrDao.getProductAverageRating(upc)));
 			
 			//get store inventory
 			StoreDao stDao = new StoreDao();
