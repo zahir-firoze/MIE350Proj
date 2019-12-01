@@ -1,21 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" import="com.vgi.model.*"%>
+<%@ page language="java" contentType="text/html" import="com.vgi.model.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Video Games</title>
-
-<link rel="stylesheet" type="text/css" href="style.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Game Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" type="text/css" href="game-page-styleV3.css">
+	<!-- <script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  -->
 
 </head>
 <body>
@@ -26,110 +26,140 @@
 	</header>
 	<%@ include file="NavBar.jsp"%>
 	
-	  <div class="pathway">
-    <span><a href="#console-type"><c:out value="${VideoGame.getConsole()}" /></a></span>
+	   <div class="pathway">
+    <span><a href="/GameCheck/ConsoleController?action=display&name="<c:out value="${VideoGame.getConsole()}" />><c:out value="${VideoGame.getConsole()}" /></a></span>
     <span>></span>
-    <span><a href="#game-name"><c:out value="${VideoGame.getTitle()}" /></a></span>
+    <span><c:out value="${VideoGame.getTitle()}" /></span>
   </div>
 
   <div class="grid-container-1">
     <div class="game-name-div">
-      <a class="game-name" href="#game-name"><c:out value="${VideoGame.getTitle()}" /></a>
+      <a class="game-name"><c:out value="${VideoGame.getTitle()}" /></a>
     </div>
     <div class="game-company-price-div">
-      <span><a class="game-company-name" href="#game-company-name"><c:out value="${VideoGame.getDeveloper()}" /></a></span>
+      <span><a class="game-company-name"><c:out value="${VideoGame.getDeveloper()}" /></a></span>
 
       <br>
       <span class="game-price">$</span>
-      <span><a class="game-price" href="game-price"><c:out value="${Product.getPrice()}" /></a></span>
+      <span><a class="game-price"><c:out value="${Product.getPrice()}" /></a></span>
     </div>
 
     <div class="rating-div">
       <span class="rate-this-title">Rate this title!</span>
-      <a class="rating-value" href="#rating-value"><c:out value="${VideoGame.getConsumerRating()}" /></a>
+      <a class="rating-value"><c:out value="${VideoGame.getConsumerRating()}" /></a>
       <br>
 
-      <!-- QUES: how to dynamically update rating? -->
+
       <fieldset class="rating">
-        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+        <input type="hidden" name="ratingOnly" value="videogame"> </input>
+        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="5 stars"></label>
 
-        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="4 stars"></label>
 
-        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="3 stars"></label>
 
-        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="2 stars"></label>
 
-        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="1 star"></label>
       </fieldset>
     </div>
 
     <div class="esrb-rating-div">
-      <img class="esrb-rating" src="#esrb-rating.png" alt= "${VideoGame.getEsrbRating()}">
+      <img class="esrb-rating" src=<c:out value="${VideoGame.getEsrbRating()}" />".png" alt=<c:out value="${VideoGame.getEsrbRating()}" />>
     </div>
 
     <div class="right-div">
       <div class="genre">
         <span>Genre:  </span>
-        <a class="genre" href="#genre"><c:out value="${VideoGame.getGenre()}" /></a>
+        <a class="genre"><c:out value="${VideoGame.getGenre()}" /></a>
       </div>
 
       <div class="developer">
         <span>Developer: </span>
-        <a class="developer" href="#developer"><c:out value="${VideoGame.getDeveloper()}" /></a>
+        <a class="developer"><c:out value="${VideoGame.getDeveloper()}" /></a>
       </div>
 
 
       <div class="release-date">
         <span>Release Date: </span>
-        <a class="release date" href="#release-date"><c:out value="${VideoGame.getReleaseDate()}" /></a>
+        <a class="release date"><c:out value="${VideoGame.getReleaseDate()}" /></a>
       </div>
 
       <div class="number-of-players">
         <span># of Players: </span>
-        <a class="number-of-players" href="#number-of-players"><c:out value="${VideoGame.getMaxPlayers()}" /></a>
+        <a class="number-of-players"><c:out value="${VideoGame.getMaxPlayers()}" /></a>
       </div>
     </div>
   </div>
-  
-    <hr>
+
+  <hr>
 
   <div class="grid-container-2">
     <div class="game-cover-div">
-      <img src= <c:out value="${VideoGame.getImageFileName()}"/>>
+      <img class="game-cover"src=<c:out value="${VideoGame.getImageFileName()}"/> alt=<c:out value="${VideoGame.getImageFileName()}"/>>
     </div>
 
     <div class="desc-store-rev-div">
       <div class="game-description">
         <h3>Description: </h3>
-        <p style="color:white"><c:out value="${VideoGame.getDescription()}" /></p>
+        <p><c:out value="${VideoGame.getDescription()}" /></p>
       </div>
 
       <div class="store-availability">
         <h3>Store Availability: </h3>
         <!-- for each store, retrieve store name, address and display in <span> tag -->
-        <c:forEach items="${storeList}" var="store">
-        <span><c:out value="${store.getName()}" />, <c:out value="${store.getAddress()}" /></span>
-        </c:forEach>
+        <span>#jsx retrieve store i name, #jsx retrieve store i address</span>
 
       </div>
 
-      <div class="review">
-        <h3>Reviews <c:out value="${CRRList.size()}" />: </h3>
-        <button class="show-all-reviews"name="review-show-all">
-          <span>[show all]</span>
-        </button>
-        <button class="write-a-review" name="write-a-review">
-          <span>Write a review</span>
-        </button>
-        <!-- for each review, retrieve reviewer name and comment (and if there are other info that needs to be displayed), and display in <span> tag -->
-        <span><c:out value="${CustomerRatingReview.getEmail()}" />, <c:out value="${CustomerRatingReview.getReview()}" /> </span>
-
-      </div>
+      <div class="reviews">
+      <h3>Reviews (<c:out value="${CRRList.size()}" />): </h3>
+      <button class="show-all-reviews"name="review-show-all">
+        <span>[show all]</span>
+      </button>
+      <button class="write-a-review" name="write-a-review">
+        <span>Write a review</span>
+      </button>
+ 	  <c:forEach items="${CRRList}" var="CustomerRatingReview">
+		      <div class="review-instance">
+		        <div class="review-instance">
+		          <!-- TODO: 1-5 star rating images -->
+		          <div class="review-header">
+		            <span class="reviewer-star-rating">star rating: <c:out value="${CustomerRatingReview.getRating()}" /> </span>
+		            <span class="reviewer-email">Email: <c:out value="${CustomerRatingReview.getEmail()}" /></span>
+		          </div>
+				 <p class="review-text"><c:out value="${CustomerRatingReview.getReview()}" /> </p>
+		          <div class="review-buttons">
+					<form method="POST" action='CustomerRatingReviewController'>
+		                <input type="hidden" name="action" value="confirmUpdate"> 
+		                <input type="hidden" name="servlet" value="VideoGameController">
+		                <!--  <input type="hidden" name="product" value=<c:out value="${VideoGame.getTitle()}" />  > -->
+		                <input type="hidden" name="upc" value=<c:out value="${VideoGame.getUPCNumber()}" />> 
+		                <input type="hidden" name="email" value=<c:out value="${CustomerRatingReview.getEmail()}" />>
+		                <input type="submit" value="Update"> 
+		            </form>
+		              <!-- confirm that the review can be deleted by the user -->
+		            <form method="POST" action='CustomerRatingReviewController'>
+		                <input type="hidden" name="action" value="confirmDelete"> 
+		                <input type="hidden" name="servlet" value="VideoGameController">
+		                <input type="hidden" name="upc" value=<c:out value="${VideoGame.getUPCNumber()}" />> 
+		                <input type="hidden" name="email" value=<c:out value="${CustomerRatingReview.getEmail()}" />>
+		                <input type="submit" value="Delete"> 
+		            </form>
+		          </div>
+		
+		
+		          
+		          <br>
+		        </div>
+		      </div>
+      </c:forEach>
+    </div>
 
 
     </div>
 
   </div>
-	
+
 </body>
 </html>

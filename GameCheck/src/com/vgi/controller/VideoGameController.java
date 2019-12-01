@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vgi.dao.CustomerRatingReviewDao;
 import com.vgi.dao.VideoGameDao;
 import com.vgi.tuple.*;
 import com.vgi.constants.*;
@@ -20,7 +21,7 @@ import com.vgi.constants.*;
 /**
  * Servlet implementation class VideoGameController
  */
-@WebServlet("/VideoGameController")
+
 public class VideoGameController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -61,7 +62,7 @@ public class VideoGameController extends HttpServlet {
 		
 		//if action is display, display the videogame information page
 		if (action.equals("display")){
-			
+			CustomerRatingReviewDao crrDao = new CustomerRatingReviewDao();
 			//get the upc number for the videogame
 			int upc = Integer.parseInt(request.getParameter("upc"));
 		
@@ -71,6 +72,8 @@ public class VideoGameController extends HttpServlet {
 			
 			//retrieve a VideoGame object whose info will be displayed in the product page
 			request.setAttribute("VideoGame", dao.retrieveVideoGame(upc));
+			//retrieve a list of reviews to display on the videogame page
+			request.setAttribute("CRRList", crrDao.getReviewsForProductPage(upc));
 			//TODO put store info, reviews and inventory request.setAttribute
 			view.forward(request, response);
 		}
@@ -83,18 +86,26 @@ public class VideoGameController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		/*
-		 * This method gets information from the HomePage.jsp when someone utilizes the filter feature
+		 * This method gets information from input forms that are sent to the VideoGameController class
 		 */
-		
+		//When a user wants to go back to video game page after creating/modifying/deleting a review
 		String inputSource =  request.getParameter("filterForm");
-		//TODO add logic to redirect the filter results to their corresonding page if they
-		//are already sorted by console
-		String requestFromPresetConsole = request.getParameter("presetConsole");
 		boolean requestReceived = false;
+		String requestFromPresetConsole = "";
+		
+		if(inputSource.equals("false")){
+			
+			doGet(request,response);
+		}
+		//When a video game filter function sends a request
+				
+		
+		
 		if (inputSource.equals("videogame")){
 			/*
 			 * !!!!!!KEEP THE HASH KEY VALUES CONSTANT AS THEY ARE THE DATABASE COLUMN NAMES FOR VIDEOGAME TABLE
 			 */
+			requestFromPresetConsole = request.getParameter("presetConsole");
 			requestReceived = true;
 			String userQuery =""; //will format the user's filter query when results appear
 			/*
@@ -201,22 +212,28 @@ public class VideoGameController extends HttpServlet {
 			RequestDispatcher view = request
 					.getRequestDispatcher(LIST_HOME_FILTER_RESULTS);
 			
-			//forward to corresponding home pages based on console name parameter
-			if (consoleValue.equals("3DS")){
-				 view = request.getRequestDispatcher(LIST_3DS_FILTER_RESULTS);
-			}
-			else if (consoleValue.equals("Switch")){
-				 view = request.getRequestDispatcher(LIST_SWITCH_FILTER_RESULTS);
-			}
-			else if (consoleValue.equals("Playstation 4")){
-				System.out.println(LIST_PLAYSTATION_4_FILTER_RESULTS );
-				 view = request.getRequestDispatcher(LIST_PLAYSTATION_4_FILTER_RESULTS);
-			}
-			else if (consoleValue.equals("Xbox One")){
-				 view = request.getRequestDispatcher(LIST_XBOX_FILTER_RESULTS);
-			}
-			else if (consoleValue.equals("PS Vita")){
-				 view = request.getRequestDispatcher(LIST_PSVITA_FILTER_RESULTS);
+			//see if the console was preset
+			String presetConsole = request.getParameter("presetConsole");
+			
+			if(presetConsole.equals("true")){
+				
+				//forward to corresponding home pages based on console name parameter
+				if (consoleValue.equals("3DS")){
+					 view = request.getRequestDispatcher(LIST_3DS_FILTER_RESULTS);
+				}
+				else if (consoleValue.equals("Switch")){
+					 view = request.getRequestDispatcher(LIST_SWITCH_FILTER_RESULTS);
+				}
+				else if (consoleValue.equals("Playstation 4")){
+					System.out.println(LIST_PLAYSTATION_4_FILTER_RESULTS );
+					 view = request.getRequestDispatcher(LIST_PLAYSTATION_4_FILTER_RESULTS);
+				}
+				else if (consoleValue.equals("Xbox One")){
+					 view = request.getRequestDispatcher(LIST_XBOX_FILTER_RESULTS);
+				}
+				else if (consoleValue.equals("PS Vita")){
+					 view = request.getRequestDispatcher(LIST_PSVITA_FILTER_RESULTS);
+				}
 			}
 			//request.setAttribute("vgFilters", input.toString());
 			request.setAttribute("userQuery", userQuery);

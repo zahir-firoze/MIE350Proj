@@ -14,6 +14,7 @@
 	<table>
       <tr>
         <td><input type="hidden" name="filterForm" value="videogame"> </input> </td>
+        <td><input type="hidden" name="presetConsole" value="false"> </input> </td>
         <td> <h9 style="color:white";> Genre: </h9></td>
         <td>
           <select name="genreFilter" style="height:35px;">

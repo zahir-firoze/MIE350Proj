@@ -62,13 +62,14 @@ public class CustomerRatingReviewDao {
 		String outputMessage;
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("UPDATE CustomerRatingReview SET UPCNumber=?,Rating=?,Review=?"
-							+ " WHERE Email=?");
+					.prepareStatement("UPDATE CustomerRatingReview SET Rating=?,Review=?"
+							+ " WHERE Email=? AND UPCNumber=?");
 			// Parameters start with 1
-			preparedStatement.setInt(1,crr.getUPCNumber());
-			preparedStatement.setDouble(2, crr.getRating());
-			preparedStatement.setString(3, crr.getReview());
-			preparedStatement.setString(4, crr.getEmail());
+			
+			preparedStatement.setDouble(1, crr.getRating());
+			preparedStatement.setString(2, crr.getReview());
+			preparedStatement.setString(3, crr.getEmail());
+			preparedStatement.setInt(4,crr.getUPCNumber());
 			preparedStatement.executeUpdate();
 			
 			//if it reaches this point, the execution was successful
@@ -81,14 +82,15 @@ public class CustomerRatingReviewDao {
 		return outputMessage;
 	}
 
-	public String deleteRatingReview(String email){
+	public String deleteRatingReview(String email,int upc){
 		//this will return a message that will be sent as feedback to the user
 		String outputMessage;
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("DELETE FROM CustomerRatingReview WHERE Email=?");
+					.prepareStatement("DELETE FROM CustomerRatingReview WHERE Email=? AND UPCNumber=?");
 			// Parameters start with 1
 			preparedStatement.setString(1,email);
+			preparedStatement.setInt(2, upc);
 			preparedStatement.executeUpdate();
 			
 			//if it reaches this point, the execution was successful
@@ -101,6 +103,35 @@ public class CustomerRatingReviewDao {
 		return outputMessage;
 	}
 	
+	public CustomerRatingReview retrieveRatingReview(String email,int upc){
+		/*
+		 * Gets the review for a specific product and email
+		 */
+		CustomerRatingReview crr = new CustomerRatingReview();
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("SELECT * FROM CustomerRatingReview WHERE Email=? AND UPCNumber=?");
+			// Parameters start with 1
+			preparedStatement.setString(1,email);
+			preparedStatement.setInt(2, upc);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				crr = new CustomerRatingReview();
+				crr.setUPCNumber(rs.getInt("UPCNumber"));
+				crr.setEmail(rs.getString("Email"));
+				crr.setRating(rs.getDouble("Rating"));
+				crr.setReview(rs.getString("Review"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return crr;
+	}
 	/*
 	 * Get all reviews for the specified product
 	 */
@@ -128,6 +159,47 @@ public class CustomerRatingReviewDao {
 		}
 		
 		return ratingReviewList;
+	}
+	/*
+	 * Get all reviews for the specified product
+	 */
+	public List<CustomerRatingReview> getReviewsForProductPage(int upcNumber){
+		List<CustomerRatingReview> ratingReviewList = new ArrayList<CustomerRatingReview>();
+		CustomerRatingReview crr;
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("SELECT * FROM CustomerRatingReview WHERE UPCNumber=?");
+			preparedStatement.setInt(1, upcNumber);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				crr = new CustomerRatingReview();
+				crr.setUPCNumber(rs.getInt("UPCNumber"));
+				crr.setEmail(rs.getString("Email"));
+				crr.setRating(rs.getDouble("Rating"));
+				crr.setReview(rs.getString("Review"));
+				
+				//add the review to the list
+				ratingReviewList.add(crr);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//retrieve a smaller size of review list for the product page
+		//want to display 3 reviews max
+		if(ratingReviewList.size() > 3){
+			List<CustomerRatingReview> reducedList = new ArrayList<CustomerRatingReview>();
+			
+			for(int i = 0; i < 3; i++){
+				reducedList.add(ratingReviewList.get(i));
+			}
+			return reducedList;
+		}
+		else{
+			return ratingReviewList;
+		}
+		
 	}
 	/*
 	 * Get average rating for the specified product
