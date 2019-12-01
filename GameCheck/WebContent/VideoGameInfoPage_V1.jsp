@@ -21,12 +21,13 @@
 <body>
 
 	<header>
-		<h1 class="page-title">GameCheck</h1>
+		<img src="img/GameCheck-logo.png">
+			<br>
 	</header>
 	<%@ include file="NavBar.jsp"%>
 	
 	  <div class="pathway">
-    <span><a href="#console-type"><c:out value="${Console.getName()}" /></a></span>
+    <span><a href="#console-type"><c:out value="${VideoGame.getConsole()}" /></a></span>
     <span>></span>
     <span><a href="#game-name"><c:out value="${VideoGame.getTitle()}" /></a></span>
   </div>
@@ -45,7 +46,7 @@
 
     <div class="rating-div">
       <span class="rate-this-title">Rate this title!</span>
-      <a class="rating-value" href="#rating-value"><c:out value="${VideoGam.getConsumerRating()}" /></a>
+      <a class="rating-value" href="#rating-value"><c:out value="${VideoGame.getConsumerRating()}" /></a>
       <br>
 
       <!-- QUES: how to dynamically update rating? -->
@@ -100,13 +101,15 @@
     <div class="desc-store-rev-div">
       <div class="game-description">
         <h3>Description: </h3>
-        <p><c:out value="${Product.getDescription()}" /></p>
+        <p style="color:white"><c:out value="${VideoGame.getDescription()}" /></p>
       </div>
 
       <div class="store-availability">
         <h3>Store Availability: </h3>
         <!-- for each store, retrieve store name, address and display in <span> tag -->
-        <span><c:out value="${Store.Name()}" />, <c:out value="${Store.getAddress()}" /></span>
+        <c:forEach items="${storeList}" var="store">
+        <span><c:out value="${store.getName()}" />, <c:out value="${store.getAddress()}" /></span>
+        </c:forEach>
 
       </div>
 

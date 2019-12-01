@@ -2,8 +2,10 @@ package com.vgi.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Date;
+import java.util.List;
 import java.text.SimpleDateFormat;  
 
 import javax.servlet.RequestDispatcher;
@@ -14,7 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.vgi.dao.CustomerRatingReviewDao;
+import com.vgi.dao.InventoryDao;
+import com.vgi.dao.StoreDao;
 import com.vgi.dao.VideoGameDao;
+import com.vgi.model.Inventory;
+import com.vgi.model.Store;
 import com.vgi.tuple.*;
 import com.vgi.constants.*;
 
@@ -56,9 +62,14 @@ public class VideoGameController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		
 		PrintWriter out = response.getWriter();
 		String forward = "";
 		String action = request.getParameter("action");
+		
+		
 		
 		//if action is display, display the videogame information page
 		if (action.equals("display")){
@@ -70,11 +81,45 @@ public class VideoGameController extends HttpServlet {
 			RequestDispatcher view = request
 					.getRequestDispatcher(DISPLAY_GAME_INFORMATION );
 			
+			
 			//retrieve a VideoGame object whose info will be displayed in the product page
 			request.setAttribute("VideoGame", dao.retrieveVideoGame(upc));
+			//retrieve a total number of reviews to display on the videogame page
+			request.setAttribute("totalReviews", crrDao.getProductReviews(upc).size());
 			//retrieve a list of reviews to display on the videogame page
 			request.setAttribute("CRRList", crrDao.getReviewsForProductPage(upc));
-			//TODO put store info, reviews and inventory request.setAttribute
+			
+			
+			
+			//get store inventory
+			StoreDao stDao = new StoreDao();
+			InventoryDao invDao = new InventoryDao();
+			
+			//will store the Store information and quantity of the product
+			List<StoreAvailability> storeAvList = new ArrayList<StoreAvailability>();
+			
+			
+			System.out.println("size of the inventory list " + invDao.getProductInventory(upc).size());
+			//iterate through returned inventory list
+			if (!invDao.getProductInventory(upc).isEmpty()){
+				
+				int inventoryListSize = invDao.getProductInventory(upc).size();
+				for(int i = 0; i < inventoryListSize; i++){
+					
+					Inventory tempInventory = invDao.getProductInventory(upc).get(i);
+					//get the store id
+					int storeID = tempInventory.getStoreID();
+					int quantity = tempInventory.getQuantity();
+					//save the store that has the product into a temporary variable
+					Store tempStore = new Store(stDao.getStore(storeID));
+					
+					StoreAvailability sA = new StoreAvailability(tempStore,quantity);
+					storeAvList.add(sA);
+				
+				}
+			}
+			
+			request.setAttribute("inventoryList", storeAvList);
 			view.forward(request, response);
 		}
 		
@@ -84,6 +129,9 @@ public class VideoGameController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		
 		/*
 		 * This method gets information from input forms that are sent to the VideoGameController class

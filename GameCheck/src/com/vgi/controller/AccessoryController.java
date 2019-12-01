@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,14 +20,21 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
 import com.vgi.constants.FilterConstants;
 import com.vgi.dao.AccessoryDao;
+import com.vgi.dao.CustomerRatingReviewDao;
+import com.vgi.dao.InventoryDao;
+import com.vgi.dao.StoreDao;
 import com.vgi.dao.VideoGameDao;
+import com.vgi.model.Inventory;
+import com.vgi.model.Store;
 import com.vgi.tuple.PriceRange;
+import com.vgi.tuple.StoreAvailability;
 /**
  * Servlet implementation class AccessoryController
  */
-@WebServlet("/AccessoryController")
+
 public class AccessoryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -33,6 +42,7 @@ public class AccessoryController extends HttpServlet {
 	
 	
 	private static String LIST_FILTER_RESULTS = "/FilterResults_Accessory.jsp";
+	private static String DISPLAY_ACCESSORY_INFORMATION = "/AccessoryInfoPage.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -46,70 +56,70 @@ public class AccessoryController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		
-//		PrintWriter out = response.getWriter();
-//		out.println("<html>");
-//		out.println("<head>");
-//		out.println("</head>");
-//		out.println("<body>");
-//		out.println("<p><i>This is the AccessoryController doGet page</i></p>");
-//		out.println("<p><i>There are " + rowCount + " rows in daddy's TODO table</p>");
-//		out.println("</body>");
-//		out.println("</html>");
-//		// TODO add new actions accordingly
-//		/**
-//		 * This class retrieves the appropriate 'action' found on the JSP pages:
-//		 * filter - filter list of games based on attribute(s)
-//		 * display - displays the video game information
-//		 */ 
-//		 
-//		 
-//		 String forward = "";
-//			String action = request.getParameter("action");
-//			
-//			//TODO
-//			//establish appropriate logic for the filter and display functions
-//			if (action.equalsIgnoreCase("filter")) {
-//				//int studentId = Integer.parseInt(request.getParameter("studentId"));
-//				//dao.deleteStudent(studentId);
-//				//forward = LIST_STUDENT_ADMIN;
-//				//request.setAttribute("students", dao.getAllStudents());
-//			} else if (action.equalsIgnoreCase("display")) {
-//				//forward = INSERT;
-//				//request.setAttribute("students", dao.getAllStudents());
-//			}
-//			else{
-//				//forward = display;
-//			}
-//			//RequestDispatcher view = request.getRequestDispatcher(forward);
-//			//view.forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		
-//		ToDoDAO dao = new ToDoDAO();
-//		int rowCount = dao.testDB();
-//        Integer daddyInteger = new Integer(rowCount);
-//		RequestDispatcher rd = request
-//				.getRequestDispatcher(TEST_LIST_FILTER_RESULTS);    
-//        request.setAttribute("daddyInt", daddyInteger);
-//        rd.forward(request, response);
-        
-        
-        
-		//*************filter accessories action INPUT - REMOVE ONCE TESTING DONE********************
-		HashMap<String,Object> input = new HashMap<String,Object>();
+		PrintWriter out = response.getWriter();
+		String forward = "";
+		String action = request.getParameter("action");
 		
-		input.put("Price",15.99);
-		//input.put("ConsoleCompatibility","Nintendo3DS");
 		
-		//*************filter accessories action START********************
-		/*RequestDispatcher view = request
-				.getRequestDispatcher(TEST_LIST_FILTER_RESULTS);
-		request.setAttribute("accessories", dao.getFilteredAccessories(input));
-		request.setAttribute("accFilters",input.toString());
-		view.forward(request, response);*/
-		//*************filter accessories action END********************
-
-
+		
+		//if action is display, display the videogame information page
+		if (action.equals("display")){
+			CustomerRatingReviewDao crrDao = new CustomerRatingReviewDao();
+			//get the upc number for the videogame
+			int upc = Integer.parseInt(request.getParameter("upc"));
+		
+			
+			RequestDispatcher view = request
+					.getRequestDispatcher(DISPLAY_ACCESSORY_INFORMATION );
+			
+			
+			//retrieve a VideoGame object whose info will be displayed in the product page
+			request.setAttribute("Accessory", dao.retrieveAccessory(upc));
+			//retrieve a total number of reviews to display on the videogame page
+			request.setAttribute("totalReviews", crrDao.getProductReviews(upc).size());
+			//retrieve a list of reviews to display on the accessory page
+			request.setAttribute("CRRList", crrDao.getReviewsForProductPage(upc));
+			
+			//get the average rating from CustomerReviewRating table
+			request.setAttribute("averageRating",crrDao.getProductAverageRating(upc));
+			
+			
+			//get store inventory
+			StoreDao stDao = new StoreDao();
+			InventoryDao invDao = new InventoryDao();
+			
+			//will store the Store information and quantity of the product
+			List<StoreAvailability> storeAvList = new ArrayList<StoreAvailability>();
+			
+			
+			System.out.println("size of the inventory list " + invDao.getProductInventory(upc).size());
+			//iterate through returned inventory list
+			if (!invDao.getProductInventory(upc).isEmpty()){
+				
+				int inventoryListSize = invDao.getProductInventory(upc).size();
+				for(int i = 0; i < inventoryListSize; i++){
+					
+					Inventory tempInventory = invDao.getProductInventory(upc).get(i);
+					//get the store id
+					int storeID = tempInventory.getStoreID();
+					int quantity = tempInventory.getQuantity();
+					//save the store that has the product into a temporary variable
+					Store tempStore = new Store(stDao.getStore(storeID));
+					
+					StoreAvailability sA = new StoreAvailability(tempStore,quantity);
+					storeAvList.add(sA);
+					
+					
+				}
+			}
+			
+			request.setAttribute("inventoryList", storeAvList);
+			view.forward(request, response);
+		}
 		
 	}
 
@@ -118,8 +128,16 @@ public class AccessoryController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		
 		String inputSource =  request.getParameter("filterForm"); //get doPost parameter from the filter form for Accessory
 		boolean requestReceived = false;
+		
+		if(inputSource.equals("false")){
+			
+			doGet(request,response);
+		}
 		//see if the doPost was called by the filter form for Accessory
 		if (inputSource.equals("accessory")){
 			/*

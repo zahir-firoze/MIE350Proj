@@ -107,7 +107,7 @@ public class CustomerRatingReviewDao {
 		/*
 		 * Gets the review for a specific product and email
 		 */
-		CustomerRatingReview crr = new CustomerRatingReview();
+		CustomerRatingReview crr = null;
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("SELECT * FROM CustomerRatingReview WHERE Email=? AND UPCNumber=?");
@@ -116,7 +116,7 @@ public class CustomerRatingReviewDao {
 			preparedStatement.setInt(2, upc);
 			ResultSet rs = preparedStatement.executeQuery();
 
-			while (rs.next()) {
+			if (rs.next()) {
 				crr = new CustomerRatingReview();
 				crr.setUPCNumber(rs.getInt("UPCNumber"));
 				crr.setEmail(rs.getString("Email"));

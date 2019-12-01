@@ -15,7 +15,9 @@
     <p class="message-text"><c:out value="${outputMessage}" /></p>
     <form method="POST" action='VideoGameController'>
       <input type="hidden" name="action" value="display">
-      <input type="hidden" name="upc" value=<c:out value="${upc}" />>
+      <!--  
+      <input type="hidden" name="upc" value=<c:out value="${upc}" ></input>
+      -->
       <button class="go-back-btn" name="go-back-btn">Go back</button>
     </form>
   </body>

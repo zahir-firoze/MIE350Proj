@@ -10,15 +10,31 @@ public class Store {
 	private String province;
 	private String daysOfOperation;
 	
-	//TODO see what object gets returned when parsing openingTime and closingTime from the table
+	
 	private String openingTime;
 	private String closingTime;
 	
-	//TODO change return type of get method
+	public Store(){
+		
+	}
+	public Store(Store store){
+		this.storeID = store.getStoreID();
+		this.telephoneNumber = store.getTelephoneNumber();
+		this.name = store.getName();
+		this.address = store.getAddress();
+		this.postalCode = store.getPostalCode();
+		this.city = store.getCity();
+		this.province = store.getProvince();
+		this.daysOfOperation = store.getDaysOfOperation();
+		
+		
+		this.openingTime = store.getOpeningTime();
+		this.closingTime = store.getClosingTime();
+	}
 	public String getOpeningTime(){
 		return openingTime;
 	}
-	//TODO change return type of get method
+	
 	public String getClosingTime(){
 		return closingTime;	
 	}

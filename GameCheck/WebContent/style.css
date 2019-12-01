@@ -1,12 +1,14 @@
 html, body {
   background-color: #3E4F8B;
+  color: #ffffff;
 }
 
 .page-title {
   font-family: 'DejaVu Sans Mono', monospace;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 40px;
 }
+
 
 a {
 	color: white;

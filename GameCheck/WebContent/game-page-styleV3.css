@@ -1,10 +1,11 @@
 html, body {
   background-color: #3E4F8B;
+  color: #ffffff;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 /* ---page title--- */
 
@@ -134,7 +135,7 @@ a {
 /* '#jsx-retrieve-console-type' */
 .pathway a {
   font-size: 15px;
-  color: black;
+  color: white;
 }
 
 /* ---grid container 1---*/

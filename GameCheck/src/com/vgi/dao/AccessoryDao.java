@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.vgi.model.Accessory;
+import com.vgi.model.VideoGame;
 import com.vgi.tuple.PriceRange;
 import com.vgi.util.DbUtil;
 
@@ -37,7 +38,27 @@ public class AccessoryDao {
 		connection = DbUtil.getConnection();
 	}
 
-	
+	public Accessory retrieveAccessory(int upcNumber){
+		Accessory acc = new Accessory();
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("SELECT * FROM Accessories WHERE UPC=?");
+			preparedStatement.setInt(1, upcNumber);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			if (rs.next()) {
+				acc.setUPCNumber(rs.getInt("UPC"));
+				acc.setName(rs.getString("Name"));
+				acc.setConsoleCompatability(rs.getString("ConsoleCompatibility"));
+				acc.setPrice(rs.getDouble("Price"));
+				acc.setDescription(rs.getString("Description"));
+				acc.setImageFileName(rs.getString("imageFileName"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return acc;
+	}
 	public List<Accessory> getFilteredAccessories(HashMap<String,Object> selectedAttributes){
 		List<Accessory> accessoriesList = new ArrayList<Accessory>();
 		String sqlQueryStatement = "SELECT * FROM Accessories";

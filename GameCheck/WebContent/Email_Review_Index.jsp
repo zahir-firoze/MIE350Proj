@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" import="com.vgi.model.*"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="com.vgi.model.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" type="text/css" href="eml-review-style.css">
 <title>Confirm Email to <c:out value="${operationForReview}" /> Review</title>
@@ -22,6 +22,7 @@
     <input type="hidden" name="product" value=<c:out value="${product}" />>
     <input type="hidden" name="servlet" value=<c:out value="${servlet}" />>
     <input type="hidden" name="upc" value=<c:out value="${upcNumber}" />>
+     <input type="hidden" name="newRating" value=<c:out value="${rating}" />>
     <input type="hidden" name="originalEmail" value=<c:out value="${originalEmail}" />>
     Email:
     <input type="text" name="Email" placeholder="e.g. gamer.checked@gmail.com">

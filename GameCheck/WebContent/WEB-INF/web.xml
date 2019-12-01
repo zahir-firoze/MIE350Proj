@@ -22,7 +22,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ConsoleController</servlet-name>
-    <url-pattern>/console</url-pattern>
+    <url-pattern>/ConsoleController</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -32,7 +32,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AccessoryController</servlet-name>
-    <url-pattern>/accessory</url-pattern>
+    <url-pattern>/AccessoryController</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -42,7 +42,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CustomerRatingReviewController</servlet-name>
-    <url-pattern>/crr</url-pattern>
+    <url-pattern>/CustomerRatingReviewController</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -52,6 +52,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>VideoGameController</servlet-name>
-    <url-pattern>/videogame</url-pattern>
+    <url-pattern>/VideoGameController</url-pattern>
   </servlet-mapping>
 </web-app>
