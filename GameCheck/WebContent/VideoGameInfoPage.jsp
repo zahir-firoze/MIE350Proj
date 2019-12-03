@@ -23,7 +23,7 @@
 
 </head>
 <body>
-<!-- <p>DOM's CONTENT: 詠春</p>  -->
+
 	<header>
 		<img src="img/GameCheck-logo.png">
 			<br>
@@ -74,7 +74,8 @@
     
 	</form>
     <div class="esrb-rating-div">
-      <img class="esrb-rating" src=<c:out value="${VideoGame.getEsrbRating()}" />".png" alt=<c:out value="${VideoGame.getEsrbRating()}" />>
+     
+      <img class="esrb-rating" src=<c:out value="${esrbRating}" /> alt=<c:out value="${VideoGame.getEsrbRating()}" />> 
     </div>
 
     <div class="right-div">
@@ -143,40 +144,99 @@
       		<input type="submit" value="Write a review"> 
       </form>
       <br>
+      
+      <table>
  	  <c:forEach items="${CRRList}" var="CustomerRatingReview">
-		      <div class="review-instance">
-		        <div class="review-instance">
-		          <!-- TODO: 1-5 star rating images -->
-		          <div class="review-header">
-		            <span class="reviewer-star-rating">star rating: <c:out value="${CustomerRatingReview.getRating()}" /> </span>
-		            <span class="reviewer-email">Email: <c:out value="${CustomerRatingReview.getEmail()}" /></span>
-		          </div>
-				 <p class="review-text"><c:out value="${CustomerRatingReview.getReview()}" /> </p>
-		          <div class="review-buttons">
-					<form method="POST" action='CustomerRatingReviewController'>
-		                <input type="hidden" name="action" value="confirmUpdate"> 
-		                <input type="hidden" name="servlet" value="VideoGameController">
-		                <!--  <input type="hidden" name="product" value=<c:out value="${VideoGame.getTitle()}" />  > -->
-		                <input type="hidden" name="upc" value=<c:out value="${VideoGame.getUPCNumber()}" />> 
-		                <input type="hidden" name="email" value=<c:out value="${CustomerRatingReview.getEmail()}" />>
-		                <input type="submit" value="Update"> 
-		            </form>
-		              <!-- confirm that the review can be deleted by the user -->
-		            <form method="POST" action='CustomerRatingReviewController'>
-		                <input type="hidden" name="action" value="confirmDelete"> 
-		                <input type="hidden" name="servlet" value="VideoGameController">
-		                <input type="hidden" name="upc" value=<c:out value="${VideoGame.getUPCNumber()}" />> 
-		                <input type="hidden" name="email" value=<c:out value="${CustomerRatingReview.getEmail()}" />>
-		                <input type="submit" value="Delete"> 
-		            </form>
-		          </div>
-		
-		
-		          
-		          <br>
-		        </div>
-		      </div>
+
+		    
+		      
+		      <tr>
+		      <td colspan="2">
+		          <hr> 
+		      </td>
+		      </tr>
+		      
+		       <!-- experimental row begin -->
+		      
+		      <tr>
+		      
+		      <!-- td containing table of review stuff - begin -->
+		      <td valign="top">
+		      
+		      <table>
+
+		    
+		      
+		      <tr>
+		      <td>
+		     <span class="reviewer-star-rating">Star rating: <c:out value="${CustomerRatingReview.getRating()}" /> </span>
+		      </td>
+		      </tr>
+		      
+		      <tr>
+		      <td>
+		       <span class="reviewer-email">Email: <c:out value="${CustomerRatingReview.getEmail()}" /></span>
+		      </td>
+		      </tr>
+		 
+		      <tr>
+		      <td>
+		       <p class="review-text"><c:out value="${CustomerRatingReview.getReview()}" /> </p>
+		      </td>
+		      </tr>
+		      
+		      </table>
+		      
+		      </td>
+		      <!-- td containing table of review stuff - end -->
+		      
+		      <!-- td containing table of update/delete stuff - begin -->
+		      <td valign="top">
+		      
+		      <table>
+		      
+		      <tr>
+		      
+		      <td>
+		                  <form method="POST" action='CustomerRatingReviewController'>
+				                <input type="hidden" name="action" value="confirmUpdate"> 
+				                <input type="hidden" name="servlet" value="VideoGameController">
+				                <!--  <input type="hidden" name="product" value=<c:out value="${VideoGame.getTitle()}" />  > -->
+				                <input type="hidden" name="upc" value=<c:out value="${VideoGame.getUPCNumber()}" />> 
+				                <input type="hidden" name="email" value=<c:out value="${CustomerRatingReview.getEmail()}" />>
+				                <input type="submit" value="Update"> 
+			              </form>
+		      </td>
+		      </tr>
+		      
+		      <tr>
+		      <td>
+		                     <form method="POST" action='CustomerRatingReviewController'>
+				                <input type="hidden" name="action" value="confirmDelete"> 
+				                <input type="hidden" name="servlet" value="VideoGameController">
+				                <input type="hidden" name="upc" value=<c:out value="${VideoGame.getUPCNumber()}" />> 
+				                <input type="hidden" name="email" value=<c:out value="${CustomerRatingReview.getEmail()}" />>
+				                <input type="submit" value="Delete"> 
+				            </form>     
+		      </td>
+		      
+		      </tr>
+		      </table>
+		      
+		      </td>
+		      <!-- td containing table of update/delete stuff - end -->
+		      
+		      </tr>
+		      
+		      <!-- experimental row end -->      
+
+
+
       </c:forEach>
+      </table>
+      
+
+      
     </div>
 
 

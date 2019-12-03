@@ -37,7 +37,7 @@
         <td>
           <select name="yearFilter" style="height:35px;">
             <option value="year0">All Years</option>
-          	<option value="2015"><2015</option>
+          	<option value="2015">&lt;2015</option>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>
@@ -49,7 +49,7 @@
           <td>
             <select name="priceFilter" style="height:35px;">
             	<option value="price0">All Price Ranges</option>
-            	<option value="price1"><$20.00</option>
+            	<option value="price1">&lt;$20.00</option>
               <option value="price2">$20.00-$39.99</option>
               <option value="price3">$40.00-$59.99</option>
               <option value="price4">$60.00+</option>

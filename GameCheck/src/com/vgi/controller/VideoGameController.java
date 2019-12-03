@@ -84,6 +84,10 @@ public class VideoGameController extends HttpServlet {
 			
 			//retrieve a VideoGame object whose info will be displayed in the product page
 			request.setAttribute("VideoGame", dao.retrieveVideoGame(upc));
+			
+			//set the esrb image path for the game page
+			String esrbRatingPic = "img/" + dao.retrieveVideoGame(upc).getEsrbRating() + ".jpg";
+			request.setAttribute("esrbRating", esrbRatingPic);
 			//retrieve a total number of reviews to display on the videogame page
 			request.setAttribute("totalReviews", crrDao.getProductReviews(upc).size());
 			//retrieve a list of reviews to display on the videogame page
@@ -100,7 +104,7 @@ public class VideoGameController extends HttpServlet {
 			List<StoreAvailability> storeAvList = new ArrayList<StoreAvailability>();
 			
 			
-			System.out.println("size of the inventory list " + invDao.getProductInventory(upc).size());
+			
 			//iterate through returned inventory list
 			if (!invDao.getProductInventory(upc).isEmpty()){
 				

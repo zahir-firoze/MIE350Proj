@@ -77,9 +77,9 @@ public class AccessoryController extends HttpServlet {
 					.getRequestDispatcher(DISPLAY_ACCESSORY_INFORMATION );
 			
 			
-			//retrieve a VideoGame object whose info will be displayed in the product page
+			//retrieve an Accessory object whose info will be displayed in the product page
 			request.setAttribute("Accessory", dao.retrieveAccessory(upc));
-			//retrieve a total number of reviews to display on the videogame page
+			//retrieve a total number of reviews to display on the product page
 			request.setAttribute("totalReviews", crrDao.getProductReviews(upc).size());
 			//retrieve a list of reviews to display on the accessory page
 			request.setAttribute("CRRList", crrDao.getReviewsForProductPage(upc));

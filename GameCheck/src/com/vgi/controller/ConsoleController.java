@@ -16,7 +16,7 @@ import com.vgi.dao.ConsoleDao;
 /**
  * Servlet implementation class ConsoleController
  */
-@WebServlet("/ConsoleController")
+
 public class ConsoleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String CONSOLE_HOMEPAGE_3DS = "/3dsHomePage.jsp";

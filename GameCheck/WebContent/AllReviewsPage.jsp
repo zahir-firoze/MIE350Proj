@@ -21,50 +21,99 @@
       		<input type="hidden" name="upc" value=<c:out value="${upc}" />> 
       		<input type="submit" value="Write a review"> 
       </form>
+      
+      
+      
+      
+      
+      
+      
       <table>
 	 	  <c:forEach items="${reviewList}" var="CustomerRatingReview">
-	 	  <tr>
-	 	  			<td>
-				      <div class="review-instance">
-				        <div class="review-instance">
-				          <!-- TODO: 1-5 star rating images -->
-				          <div class="review-header">
-				            <span class="reviewer-star-rating">star rating: <c:out value="${CustomerRatingReview.getRating()}" /> </span>
-				            <span class="reviewer-email">Email: <c:out value="${CustomerRatingReview.getEmail()}" /></span>
-				          </div>
-						 <p class="review-text"><c:out value="${CustomerRatingReview.getReview()}" /> </p>
-					 
-					 </td>
-					 <td>
-			          <div class="review-buttons">
-						<form method="POST" action='CustomerRatingReviewController'>
+	 	  
+      		     
+		      
+		      <tr>
+		      <td colspan="2">
+		        <hr> 
+		      </td>
+		      </tr>
+		      
+		      <!-- experimental row begin -->
+		      
+		      <tr>
+		      
+		      <!-- td containing table of review stuff - begin -->
+		      <td valign="top">
+		      
+		      <table>
+
+		    
+		      
+		      <tr>
+		      <td>
+		      <span class="reviewer-star-rating">star rating: <c:out value="${CustomerRatingReview.getRating()}" /> </span> 
+		      </td>
+		      </tr>
+		      
+		      <tr>
+		      <td>
+		       <span class="reviewer-email">Email: <c:out value="${CustomerRatingReview.getEmail()}" /></span>
+		      </td>
+		      </tr>
+		 
+		      <tr>
+		      <td>
+		       <p class="review-text"><c:out value="${CustomerRatingReview.getReview()}" /> </p>
+		      </td>
+		      </tr>
+		      
+		      </table>
+		      
+		      </td>
+		      <!-- td containing table of review stuff - end -->
+		      
+		      <!-- td containing table of update/delete stuff - begin -->
+		      <td valign="top">
+		      
+		      <table>
+		      
+		      <tr>
+		      
+		      <td>
+		                <form method="POST" action='CustomerRatingReviewController'>
 			                <input type="hidden" name="action" value="confirmUpdate"> 
 			                <input type="hidden" name="servlet" value=<c:out value="${servlet}" /> >
 			                <!--  <input type="hidden" name="product" value=<c:out value="${VideoGame.getTitle()}" />  > -->
 			                <input type="hidden" name="upc" value=<c:out value="${upc}" />> 
 			                <input type="hidden" name="email" value=<c:out value="${CustomerRatingReview.getEmail()}" />>
 			                <input type="submit" value="Update"> 
-			            </form>
-			           </td>
-			           <td>
-			              <!-- confirm that the review can be deleted by the user -->
-			            <form method="POST" action='CustomerRatingReviewController'>
+			            </form>        
+		      </td>
+		      </tr>
+		      
+		      <tr>
+		      <td>
+		                <form method="POST" action='CustomerRatingReviewController'>
 			                <input type="hidden" name="action" value="confirmDelete"> 
 			                <input type="hidden" name="servlet" value=<c:out value="${servlet}" /> >
 			                <input type="hidden" name="upc" value=<c:out value="${upc}" />> 
 			                <input type="hidden" name="email" value=<c:out value="${CustomerRatingReview.getEmail()}" />>
 			                <input type="submit" value="Delete"> 
-			            </form>
-			            </td>
-			          </div>
-			
-			
-			          
-			          <br>
-			        </div>
-			      </div>
-			      
-			      </tr>
+			            </form>             
+		      </td>
+		      
+		      </tr>
+		      </table>
+		      
+		      </td>
+		      <!-- td containing table of update/delete stuff - end -->
+		      
+		      </tr>
+		      
+		      <!-- experimental row end -->      
+
+	 	  
 	      </c:forEach>
 	      
       </table>

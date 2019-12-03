@@ -16,7 +16,7 @@
           <td>
             <select name="priceFilter" style="height:35px;">
             	<option value="price0">All Price Ranges</option>
-            	<option value="price1"><$20.00</option>
+            	<option value="price1">&lt;$20.00</option>
               <option value="price2">$20.00-$39.99</option>
               <option value="price3">$40.00-$59.99</option>
               <option value="price4">$60.00+</option>

@@ -46,58 +46,7 @@ public class CustomerRatingReviewController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
-		PrintWriter out = response.getWriter();
-	
-		//add test
-		CustomerRatingReview crr = new CustomerRatingReview();
 		
-		crr.setEmail("ciel.emond@gmail.com");
-		crr.setRating(3.2);
-		crr.setReview("hallo this will work");
-		crr.setUPCNumber(1234567);
-		RequestDispatcher view = request
-				.getRequestDispatcher(TEST_CRR_OUTPUT );
-		
-		//retrieve a VideoGame object whose info will be displayed in the product page
-		request.setAttribute("outputMessage", dao.getProductAverageRating(454965));
-		//TODO put store info, reviews and inventory request.setAttribute
-		view.forward(request, response);
-		// TODO add new actions accordingly
-//				/**
-//				 * This class retrieves the appropriate 'action' found on the JSP pages:
-//				 * addReview - adds a written review for a product
-//				 * addRating - adds a number rating
-//				 * updateReview - updates a written review
-//				 * deleteReview - deletes a review
-//				 * deleteRating - deletes a rating
-//				 */ 
-//				 
-//				 
-//				 String forward = "";
-//					String action = request.getParameter("addReview");
-//					
-//					//TODO
-//					//establish appropriate logic for the filter and display functions
-//					if (action.equalsIgnoreCase("addRating")) {
-//						//int studentId = Integer.parseInt(request.getParameter("studentId"));
-//						//dao.deleteStudent(studentId);
-//						//forward = LIST_STUDENT_ADMIN;
-//						//request.setAttribute("students", dao.getAllStudents());
-//					} else if (action.equalsIgnoreCase("updateReview")) {
-//						//forward = INSERT;
-//						//request.setAttribute("students", dao.getAllStudents());
-//					} else if (action.equalsIgnoreCase("deleteReview")) {
-//						//forward = INSERT;
-//						//request.setAttribute("students", dao.getAllStudents());
-//					} else if (action.equalsIgnoreCase("deleteRating")) {
-//						//forward = INSERT;
-//						//request.setAttribute("students", dao.getAllStudents());
-//					}
-//					else{
-//						//forward = display;
-//					}
-//					//RequestDispatcher view = request.getRequestDispatcher(forward);
-//					//view.forward(request, response);
 	}
 
 	/**
